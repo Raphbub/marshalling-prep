@@ -13,43 +13,51 @@
 <body>
     <!-- Pièce de 7x7x3 -->
     <a-scene>
+        <!-- Pièce -->
+            <!-- Sol -->
+            <a-box position="0 0 0" width="7" height="0.1" depth="7" color="red"></a-box>
+            
+            <!-- Plafond -->
+            <a-box position="0 3 0" width="7" height="0.1" depth="7.2a" color="blue"></a-box>
+            
+            <!-- Murs -->
+            <a-box position="0 0.5 -3.45" width="7" height="1" depth="0.1" color="green"></a-box>
+            <a-plane position="0 2 -3.5" width="7" height="2" depth="0.1" material="color: lightblue; opacity: 0.25"></a-plane>
+
+            <a-box position="0 1.5 3.5" width="7" height="3" depth="0.1" color="yellow"></a-box>  <!-- Back Wall - Yellow -->
+            <!-- Mur gauche -->
+            <!-- Sommet mur gauche -->
+            <a-box position="-3.5 2.8 0" width="0.1" height="0.4" depth="7" color="orange"></a-box>
+            <!-- Gauche du mur gauche (direction mur arrière) -->
+            <a-box position="-3.5 1.3 1.75" width="0.1" height="2.6" depth="3.5" color="orange"></a-box>
+            <!-- Droite du mur gauche (direction mur frontal/fenêtre) -->
+            <a-box position="-3.5 1.3 -2.5" width="0.1" height="2.6" depth="2" color="orange"></a-box>
+
+            <a-box position="3.5 1.5 0" width="0.1" height="3" depth="7" color="purple"></a-box>  <!-- Right Wall - Purple -->
+        
+            <!-- Stores -->
+            <a-entity position="0 2 -3.55">
+                <!-- Lamelles -->
+                <a-box position="0 0.8 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
+                <a-box position="0 0.6 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
+                <a-box position="0 0.4 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
+                <a-box position="0 0.2 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
+                <a-box position="0 0.0 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
+                <!-- Fils -->
+                <a-cylinder position="-3.15 0.5 0" radius="0.01" height="1" color="brown"></a-cylinder> 
+                <a-cylinder position="3.15 0.5 0" radius="0.01" height="1" color="brown"></a-cylinder>
+                <!-- Noeuds/arrêtoirs -->
+                <a-cylinder position="-3.15 -0.025 0" rotation="-25 0 0" radius="0.02" height="0.025" color="brown"></a-cylinder> 
+                <a-cylinder position="3.15 -0.025 0" rotation="-25 0 0" radius="0.02" height="0.025" color="brown"></a-cylinder>
+            </a-entity>
+
+        <!-- Extérieur -->
         <!-- Sol -->
-        <a-box position="0 0 0" width="7" height="0.1" depth="7" color="red"></a-box>
-        
-        <!-- Plafond -->
-        <a-box position="0 3 0" width="7" height="0.1" depth="7.2a" color="blue"></a-box>
-        
-        <!-- Murs -->
-        <a-box position="0 0.5 -3.45" width="7" height="1" depth="0.1" color="green"></a-box>
-        <a-plane position="0 2 -3.5" width="7" height="2" depth="0.1" material="color: lightblue; opacity: 0.25"></a-plane>
-
-        <a-box position="0 1.5 3.5" width="7" height="3" depth="0.1" color="yellow"></a-box>  <!-- Back Wall - Yellow -->
-        <!-- Mur gauche -->
-        <!-- Sommet mur gauche -->
-        <a-box position="-3.5 2.8 0" width="0.1" height="0.4" depth="7" color="orange"></a-box>
-        <!-- Gauche du mur gauche (direction mur arrière) -->
-        <a-box position="-3.5 1.3 1.75" width="0.1" height="2.6" depth="3.5" color="orange"></a-box>
-        <!-- Droite du mur gauche (direction mur frontal/fenêtre) -->
-        <a-box position="-3.5 1.3 -2.5" width="0.1" height="2.6" depth="2" color="orange"></a-box>
-
-        <a-box position="3.5 1.5 0" width="0.1" height="3" depth="7" color="purple"></a-box>  <!-- Right Wall - Purple -->
-      
-        <!-- Stores -->
-        <a-entity position="0 2 -3.55">
-            <!-- Lamelles -->
-            <a-box position="0 0.8 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
-            <a-box position="0 0.6 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
-            <a-box position="0 0.4 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
-            <a-box position="0 0.2 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
-            <a-box position="0 0.0 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
-            <!-- Fils -->
-            <a-cylinder position="-3.15 0.5 0" radius="0.01" height="1" color="brown"></a-cylinder> 
-            <a-cylinder position="3.15 0.5 0" radius="0.01" height="1" color="brown"></a-cylinder>
-            <!-- Noeuds/arrêtoirs -->
-            <a-cylinder position="-3.15 -0.025 0" rotation="-25 0 0" radius="0.02" height="0.025" color="brown"></a-cylinder> 
-            <a-cylinder position="3.15 -0.025 0" rotation="-25 0 0" radius="0.02" height="0.025" color="brown"></a-cylinder>
-        </a-entity>
-
+            <a-plane position="0 0 -43" rotation="-90 0 0" width="100" height="80" color="lightgray"></a-plane>
+            <!-- Lignes -->
+            <a-plane position="0 0.01 -15" rotation="-90 -90 0" width="0.5" height="300" color="yellow"></a-plane>
+            <a-plane position="0 0.01 -14.7" rotation="-90 -90 0" width="0.1" height="300" color="black"></a-plane>
+            <a-plane position="0 0.01 -15.5" rotation="-90 -90 0" width="0.1" height="300" color="black"></a-plane>
         <!-- Définit la caméra dans un rig auquel on peut donner les attributs
         nécessaires au déplacement par gamepad, la vitesse, et contraindre selon une navMesh (
         à voir si le temps sera suffisant pour la définir) -->

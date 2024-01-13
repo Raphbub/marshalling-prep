@@ -12,3 +12,6 @@ Pour la librairie A-Frame Extras, au niveau des contrôles du mouvement : [https
 ### Navigation Mesh
 - Tutoriel : [https://medium.com/@donmccurdy/creating-a-nav-mesh-for-a-webvr-scene-b3fdb6bed918](https://medium.com/@donmccurdy/creating-a-nav-mesh-for-a-webvr-scene-b3fdb6bed918)
 - Doc : [https://github.com/c-frame/aframe-extras/tree/master/src/pathfinding](https://github.com/c-frame/aframe-extras/tree/master/src/pathfinding)
+
+### Marquages tarmac
+Règles de la FAA : [https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html](https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html)
