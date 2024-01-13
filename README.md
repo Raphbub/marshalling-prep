@@ -9,7 +9,7 @@
 ### Sources et ressources
 
 
-Le fichier [sources_ref.md](source_ref.md) détaille un peu plus les différents éléments utilisés (blogs, tutos, documentation) pendant la conception du travail.
+Le fichier [sources_ref.md](sources_ref.md) détaille un peu plus les différents éléments utilisés (blogs, tutos, documentation) pendant la conception du travail.
 
 ### Contexte de développement
 
