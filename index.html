@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Marshalling prep</title>
+    <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Librairie A-frame -->
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <!-- Librairie A-frame Extras -->
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
+</head>
+<body>
+    <!-- Pièce de 7x7x3 -->
+    <a-scene>
+        <!-- Sol -->
+        <a-box position="0 0 0" width="7" height="0.1" depth="7" color="red"></a-box>
+        
+        <!-- Plafond -->
+        <a-box position="0 3 0" width="7" height="0.1" depth="7" color="blue"></a-box>
+        
+        <!-- Murs -->
+        <a-box position="0 1.5 -3.5" width="7" height="3.4" depth="0.1" color="green"></a-box> <!-- Front Wall - Green -->
+        <a-box position="0 1.5 3.5" width="7" height="3.4" depth="0.1" color="yellow"></a-box>  <!-- Back Wall - Yellow -->
+        <a-box position="-3.5 1.5 0" width="0.1" height="3.4" depth="7" color="orange"></a-box> <!-- Left Wall - Orange -->
+        <a-box position="3.5 1.5 0" width="0.1" height="3.4" depth="7" color="purple"></a-box>  <!-- Right Wall - Purple -->
+      
+        <!-- Définit la caméra dans un rig auquel on peut donner les attributs
+        nécessaires au déplacement par gamepad, la vitesse, et contraindre selon une navMesh (
+        à voir si le temps sera suffisant pour la définir) -->
+        <a-entity
+            id="rig"
+            position="0 0 0"
+            movement-controls="controls: gamepad,keyboard; speed: 0.15; constrainToNavMesh: true">
+            <a-camera position="0 1.7 0"></a-camera>
+        </a-entity>
+      
+        <!-- Lumière ambiante simple -->
+        <a-light type="ambient" color="#fff"></a-light>
+    </a-scene>
+      
+    <!-- Script perso -->
+    <script src="script.js"></script>
+</body>
+</html>
