@@ -54,11 +54,31 @@
         <!-- Extérieur -->
         <!-- Sol -->
             <a-plane position="0 0 -43" rotation="-90 0 0" width="100" height="80" color="lightgray"></a-plane>
-            <!-- Lignes -->
+            <!-- Lignes droites perpendiculaires fenêtre -->
             <a-plane position="0 0.01 -15" rotation="-90 -90 0" width="0.5" height="300" color="yellow"></a-plane>
-            <a-plane position="0 0.01 -14.7" rotation="-90 -90 0" width="0.1" height="300" color="black"></a-plane>
-            <a-plane position="0 0.01 -15.5" rotation="-90 -90 0" width="0.1" height="300" color="black"></a-plane>
-        <!-- Définit la caméra dans un rig auquel on peut donner les attributs
+            <a-plane position="0 0.002 -14.7" rotation="-90 -90 0" width="0.1" height="300" color="black"></a-plane>
+            <a-plane position="0 0.002 -15.3" rotation="-90 -90 0" width="0.1" height="300" color="black"></a-plane>
+            <!-- Virage -->
+            <!-- Cercle extérieur noir pour virage -->
+            <a-circle position="-7 0.002 -10" rotation="-90 0 0" radius="5.4" color="black" segment ="64"></a-circle>
+            <!-- Cercle médian jaune pour virage -->
+            <a-circle position="-7 0.003 -10" rotation="-90 0 0" radius="5.3" color="yellow" segment ="64"></a-circle>
+            <!-- Cercle intérieur noir pour virage -->
+            <a-circle position="-7 0.004 -10" rotation="-90 0 0" radius="4.7" color="black" segment ="64"></a-circle>
+            <!-- Cercle gris intérieur pour masquage -->
+            <a-circle position="-7 0.005 -10" rotation="-90 0 0" radius="4.62" color="lightgray"></a-circle>
+            <!-- Plans gris pour masquage -->
+            <a-plane position="-7 0.006 -6.99" rotation="-90 0 0" width="12" height="6" color="lightgray"></a-plane>
+            <a-plane position="-3.5 0.007 -11.9" rotation="-90 0 0" width="7" height="5.5" color="lightgray"></a-plane>
+            <!-- Lignes noire pour masque reste virage -->
+            <a-plane position="-3.5 0.01 -14.7" rotation="-90 -90 0" width="0.1" height="7" color="black"></a-plane>
+            <a-plane position="-7 0.01 -15.3" rotation="-90 -90 0" width="0.1" height="300" color="black"></a-plane>
+            <!-- Lignes n/j pour reprise du cercle -->
+            <a-plane position="-12 0.01 -5.77" rotation="-90 0 0" width="0.6" height="8.45" color="yellow"></a-plane>
+            <a-plane position="-12.34 0.02 -5.69" rotation="-90 0 0" width="0.085" height="8.6" color="black"></a-plane>
+            <a-plane position="-11.67 0.02 -5.69" rotation="-90 0 0" width="0.085" height="8.6" color="black"></a-plane>
+            
+            <!-- Définit la caméra dans un rig auquel on peut donner les attributs
         nécessaires au déplacement par gamepad, la vitesse, et contraindre selon une navMesh (
         à voir si le temps sera suffisant pour la définir) -->
         <a-entity
