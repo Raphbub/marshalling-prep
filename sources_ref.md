@@ -2,6 +2,10 @@
 
 Ce document sert à retrouver facilement les différents éléments de code utilisés et les références et documentation associés. Il n'y a pas d'ordre précis vu sa constitution au fur et à mesure du projet.
 
+## Assets
+
+- Avion "Piper PA-18 Supercub" par *lucas_pl* : [https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070](https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070)
+
 ### Gamepad controllers
 Pour la librairie A-Frame Extras, au niveau des contrôles du mouvement : [https://github.com/c-frame/aframe-extras/tree/master/src/controls](https://github.com/c-frame/aframe-extras/tree/master/src/controls)
 
@@ -15,3 +19,6 @@ Pour la librairie A-Frame Extras, au niveau des contrôles du mouvement : [https
 
 ### Marquages tarmac
 Règles de la FAA : [https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html](https://www.faa.gov/air_traffic/publications/atpubs/aim_html/chap2_section_3.html)
+
+### Favicon
+J'ai oublié de noter sur le moment de quel générateur de favicon il a été issu. Il a été généré par une AI sur le "thème" aviation and marshalling wand.
