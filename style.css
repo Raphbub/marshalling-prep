@@ -1,0 +1,27 @@
+/* Pour gagner du temps, le .css a été généré par ChatGPT, avec à chaque fois un prompt
+qui permettait de rajouter une ou plusieurs options (ex. Style this div so it has a 
+full-screen opaque white color, on top of the page, and the text is centred.) 
+Ensuite les éléments sont ajustés (ex. fond noir au final pour simuler une vue
+paupières closes). */
+#fullscreen-rect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 1.5s ease-in-out;
+    opacity: 1;
+    align-items: center;
+    text-align: center;
+    font-size: 24px;
+    z-index: 1000;
+}
+
+p {
+    color: white;
+}
