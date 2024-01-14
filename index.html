@@ -20,13 +20,14 @@
     <a-scene>
         <!-- Chargement des assets -->
         <a-assets>
+            <audio id="alarm-clock" src="assets/alarm-clock-short.mp3" preload="auto"></audio>
             <a-asset-item id="piper-plane" src="assets/piper_pa18.obj"></a-asset-item>
             <a-asset-item id="piper-plane-material" src="assets/piper_pa18.mtl"></a-asset-item>
-            <audio id="prop-sound" src="assets/propeller.mp3" preload="auto"></audio>
-            <audio id="alarm-clock" src="assets/propeller.mp3" preload="auto"></audio>
+            <!-- <audio id="prop-sound" src="assets/propeller.mp3" preload="auto"></audio> -->
         </a-assets>
-        <a-entity sound="src: #prop-sound autoplay: false"></a-entity>
-        <a-entity sound="src: #alarm-clock autoplay: false"></a-entity>
+        <a-sound id="alarm-clock-ent" src="#alarm-clock" autoplay="false" position="0 2 5"></a-sound>
+        <!-- <a-entity id="prop-sound-ent" sound="src: assets/propeller.mp3; autoplay: false"></a-entity>
+        <a-entity id="alarm-clock-ent" sound="src: assets/alarm-clock.mp3; autoplay: false"></a-entity> -->
         <!-- <a-obj-model src="#piper-plane" mtl="#piper-plane-material" position="10 -0.3 -15" scale="1 1 1" rotation="-12 -90 0"></a-obj-model> -->
         <!-- Pièce 7x7x3 -->
             <!-- Sol -->

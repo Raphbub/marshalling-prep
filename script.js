@@ -4,7 +4,7 @@ function removeRectKeyPressed() {
   fadeRectangle();
   // On enlève l'EV équivalent sur le gamepad
   window.removeEventListener('gamepadconnected', gamePadConnected);
-};
+}
 
 // Ajout du message relatif au gamepad
 function addGamepadMsg() {
@@ -25,7 +25,7 @@ function removeRectGpPressed(e) {
           document.removeEventListener('keydown', removeRectKeyPressed);
       };
     }, 100)
-};
+}
 
 // Actions lors de la connexion du gamepad
 function gamePadConnected(e) {
@@ -34,25 +34,69 @@ function gamePadConnected(e) {
   removeRectGpPressed(e);
 }
 
-// Faire disparaître le rectangle
-// Complémentaire au paramètre transition du .css
+/* Fonction pour affichage du décompte et disparition du message d'accueil
+Cette fonction a été améliorée avec l'aide de ChatGPT à l'aide du prompt suivant
+I want that instead of instantly fading, there is a countdown of 5 seconds (shown on screen)
+before it starts fading*/
 function fadeRectangle() {
-  let rect = document.getElementById('fullscreen-rect')
-  rect.style.opacity = '0';
-  setTimeout(function() {
-    rect.remove();
-  }, 1500);
+  let countdown = 5; // Countdown duration in seconds
+  let countdownDisplay = document.createElement('p');
+  countdownDisplay.id = 'countdown';
+  countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
+  let rect = document.getElementById('fullscreen-rect');
+  rect.appendChild(countdownDisplay);
+
+  let countdownInterval = setInterval(function() {
+      countdown--;
+      if(countdown == 3) {
+        document.getElementById('alarm-clock-ent').components.sound.playSound()
+        countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
+      } else if (countdown == 1) {
+        countdownDisplay.innerText = 'Début dans ' + countdown + ' seconde';
+      } else if (countdown <= 0) {
+          clearInterval(countdownInterval);
+          // Start fading
+          rect.style.opacity = '0';
+          setTimeout(function() {
+              rect.remove();
+          }, 1500);
+      } else {
+        countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
+      }
+  }, 1000);
+
+    
 }
 
 // Ajouter les deux EV aux évènements respectifs
 document.addEventListener('keydown', removeRectKeyPressed, {once: true});
 window.addEventListener("gamepadconnected", gamePadConnected);
 
+function startAnimations() {
+  playAlarmClock();
+}
+
+function playAlarmClock() {
+  let alarme = document.getElementById('alarm-clock-ent');
+  alarme.setAttribute('volume', 0.05);
+  alarme.playSound();
+}
+
+// document.getElementById('alarm-clock-ent').setEventListener("loaded", function () {
+//   console.log("HEHO")
+// })
+
 /* Pour gagner un peu de temps de chargement, on attend que le contenu soit chargé
 avant d'ajouter le modèle de l'avion à la scène (en dehors du champ de vision) 
 Adapté de la génération par ChatGPT pour le prompt 'In A-Frame, using javascript, write a function
 using the loaded event so that a model is added to the scene only when loaded' */
 document.addEventListener('DOMContentLoaded', function() {
+  
+  // document.querySelector('#alarm-clock-ent').setEventListener("sound-loaded", function () {
+  //   console.log("HEHO")
+  // })
+
+
   document.querySelector('#piper-plane').addEventListener('loaded', function () {
     // On sélectionne la scène et on créé un objet
     var sceneEl = document.querySelector('a-scene');
