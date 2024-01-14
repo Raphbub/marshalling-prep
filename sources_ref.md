@@ -4,7 +4,9 @@ Ce document sert à retrouver facilement les différents éléments de code util
 
 ## Assets
 
+- Alarme (réveil), Pixabay, : [https://pixabay.com/sound-effects/bedside-clock-alarm-95792/](https://pixabay.com/sound-effects/bedside-clock-alarm-95792/)
 - Avion "Piper PA-18 Supercub" par *lucas_pl* : [https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070](https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070)
+- Bruitage moteur, Pixabay : [https://pixabay.com/sound-effects/propellerwav-14433/](https://pixabay.com/sound-effects/propellerwav-14433/)
 
 ### Gamepad controllers
 Pour la librairie A-Frame Extras, au niveau des contrôles du mouvement : [https://github.com/c-frame/aframe-extras/tree/master/src/controls](https://github.com/c-frame/aframe-extras/tree/master/src/controls)
@@ -22,3 +24,10 @@ Règles de la FAA : [https://www.faa.gov/air_traffic/publications/atpubs/aim_htm
 
 ### Favicon
 J'ai oublié de noter sur le moment de quel générateur de favicon il a été issu. Il a été généré par une AI sur le "thème" aviation and marshalling wand.
+
+### Éxécution unique d'un eventListener 
+StackOverflow : [https://stackoverflow.com/questions/60498051/how-to-bind-an-event-listener-only-once-in-pure-javascript](https://stackoverflow.com/questions/60498051/how-to-bind-an-event-listener-only-once-in-pure-javascript)
+
+### Détection d'une pression d'un bouton de la manette
+- Tester les boutons de sa manette : [https://luser.github.io/gamepadtest/](https://luser.github.io/gamepadtest/)
+StackOverflow : [https://stackoverflow.com/questions/60804995/how-to-detect-a-button-press-with-gamepad-api](https://stackoverflow.com/questions/60804995/how-to-detect-a-button-press-with-gamepad-api)
