@@ -11,9 +11,14 @@
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.2.0/dist/aframe-extras.min.js"></script>
 </head>
 <body>
-    <!-- Pièce de 7x7x3 -->
     <a-scene>
-        <!-- Pièce -->
+        <!-- Chargement des assets -->
+        <a-assets>
+            <a-asset-item id="piper-plane" src="assets/piper_pa18.obj"></a-asset-item>
+            <a-asset-item id="piper-plane-material" src="assets/piper_pa18.mtl"></a-asset-item>
+        </a-assets>
+        <!-- <a-obj-model src="#piper-plane" mtl="#piper-plane-material" position="10 -0.3 -15" scale="1 1 1" rotation="-12 -90 0"></a-obj-model> -->
+        <!-- Pièce 7x7x3 -->
             <!-- Sol -->
             <a-box position="0 0 0" width="7" height="0.1" depth="7" color="red"></a-box>
             
