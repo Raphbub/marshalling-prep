@@ -13,6 +13,7 @@ Pour celles prises sur PolyHaven (Licence CC0) :
 - Mur en ciment (004), *Baglioni C. & Barresi D*, [https://polyhaven.com/a/concrete_wall_004](https://polyhaven.com/a/concrete_wall_004)
 - Mur en ciment (008), *Baglioni C. & Barresi D*, [https://polyhaven.com/a/concrete_wall_008](https://polyhaven.com/a/concrete_wall_008)
 - Tuiles en caoutchouc, *Amal Kumar*, [https://polyhaven.com/a/rubber_tiles](https://polyhaven.com/a/rubber_tiles)
+- Bois contreplaqué, *Rob Tuytel*, [https://polyhaven.com/a/plywood](https://polyhaven.com/a/plywood)
 
 ### Gamepad controllers
 Pour la librairie A-Frame Extras, au niveau des contrôles du mouvement : [https://github.com/c-frame/aframe-extras/tree/master/src/controls](https://github.com/c-frame/aframe-extras/tree/master/src/controls)
@@ -31,7 +32,7 @@ Règles de la FAA : [https://www.faa.gov/air_traffic/publications/atpubs/aim_htm
 ### Favicon
 J'ai oublié de noter sur le moment de quel générateur de favicon il a été issu. Il a été généré par une AI sur le "thème" aviation and marshalling wand.
 
-### Éxécution unique d'un eventListener 
+### Exécution unique d'un eventListener 
 StackOverflow : [https://stackoverflow.com/questions/60498051/how-to-bind-an-event-listener-only-once-in-pure-javascript](https://stackoverflow.com/questions/60498051/how-to-bind-an-event-listener-only-once-in-pure-javascript)
 
 ### Détection d'une pression d'un bouton de la manette
