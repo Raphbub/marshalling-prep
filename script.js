@@ -68,20 +68,47 @@ function fadeRectangle() {
 
 }
 
-// Ajouter les deux EV aux évènements respectifs
+// Ajouter les deux EL aux évènements respectifs
 document.addEventListener('keydown', removeRectKeyPressed, {once: true});
 window.addEventListener("gamepadconnected", gamePadConnected);
 
-function startAnimations() {
-  playAlarmClock();
+
+// Ajout des lumières du taxiway
+function addTaxywayLights() {
+  // Sélection de la scène
+  let sceneEl = document.querySelector('a-scene');
+  // Boucle sur la longueur plus ou moins visible du taxiway
+  for (let i = -47; i <= 50; i += 5) {
+    // Ajout du cylindre
+    let cyl = document.createElement('a-cylinder');
+    cyl.setAttribute('position', `${i} 0.01 -14.35`);
+    cyl.setAttribute('radius', '0.08');
+    cyl.setAttribute('height', '0.15');
+    cyl.setAttribute('rotation', '90 0 0');
+    cyl.setAttribute('material', 'color: green');
+    sceneEl.appendChild(cyl);
+
+    // Ajout de la lumière juste au-dessus
+    let pointLight = document.createElement('a-light');
+    pointLight.setAttribute('type', 'point');
+    pointLight.setAttribute('angle', '45');
+    pointLight.setAttribute('position', `${i} 0.2 -14.35`);
+    pointLight.setAttribute('color', 'green');
+    pointLight.setAttribute('intensity', '1');
+    pointLight.setAttribute('distance', '1');
+    pointLight.setAttribute('decay', '0.1');
+    sceneEl.appendChild(pointLight);
+  } 
 }
+        
 
 /* Pour gagner un peu de temps de chargement, on attend que le contenu soit chargé
 avant d'ajouter le modèle de l'avion à la scène (en dehors du champ de vision) 
 Adapté de la génération par ChatGPT pour le prompt 'In A-Frame, using javascript, write a function
 using the loaded event so that a model is added to the scene only when loaded' */
 document.addEventListener('DOMContentLoaded', function() {
-  
+  addTaxywayLights();
+
   document.querySelector('#piper-plane').addEventListener('loaded', function () {
     // On sélectionne la scène et on créé un objet
     var sceneEl = document.querySelector('a-scene');
