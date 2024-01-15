@@ -17,12 +17,15 @@
         <p>Récupérez vos affaires avant de sortir sur le tarmac</p>
         <br>      
     </div>
-    <a-scene>
+    <a-scene fog="type: linear; color: #AAA; far: 35; near: 10">
         <!-- Chargement des assets -->
         <a-assets>
             <audio id="alarm-clock" src="assets/alarm-clock-short.mp3" preload="auto"></audio>
             <a-asset-item id="piper-plane" src="assets/piper_pa18.obj"></a-asset-item>
             <a-asset-item id="piper-plane-material" src="assets/piper_pa18.mtl"></a-asset-item>
+            <img id="sol-text" src="assets/rubber_tiles_diff_2k.jpg">
+            <img id="mur-text" src="assets/concrete_wall_004_diff_2k.jpg">
+            <img id="plafond-text" src="assets/concrete_wall_008_diff_2k.jpg">
             <!-- <audio id="prop-sound" src="assets/propeller.mp3" preload="auto"></audio> -->
         </a-assets>
         <a-sound id="alarm-clock-ent" src="#alarm-clock" autoplay="false" position="0 2 5"></a-sound>
@@ -31,31 +34,34 @@
         <!-- <a-obj-model src="#piper-plane" mtl="#piper-plane-material" position="10 -0.3 -15" scale="1 1 1" rotation="-12 -90 0"></a-obj-model> -->
         <!-- Pièce 7x7x3 -->
             <!-- Sol -->
-            <a-box position="0 0 0" width="7" height="0.1" depth="7" color="red"></a-box>
+            <a-box position="0 0 0" width="7" height="0.1" depth="7" material="src:#sol-text"></a-box>
             
             <!-- Plafond -->
-            <a-box position="0 3 0" width="7" height="0.1" depth="7.2a" color="blue"></a-box>
+            <a-box position="0 3 0" width="7" height="0.1" depth="7.2a" material="src:#plafond-text"></a-box>
             
             <!-- Murs -->
-            <a-box position="0 0.5 -3.45" width="7" height="1" depth="0.1" color="green"></a-box>
-            <a-plane position="0 2 -3.5" width="7" height="2" depth="0.1" material="color: lightblue; opacity: 0.25"></a-plane>
+            <a-box position="0 0.5 -3.45" width="7" height="1" depth="0.1" material="src:#mur-text"></a-box> <!--color="green"-->
+            <!-- <a-plane position="0 2 -3.5" width="7" height="2" depth="0.1" material="color: lightblue; opacity: 0.25"></a-plane> -->
+            <a-plane position="0 2 -3.5" width="7" height="2" depth="0.1" material="color: white; opacity: 0.1"></a-plane>
 
-            <a-box position="0 1.5 3.5" width="7" height="3" depth="0.1" color="yellow"></a-box>  <!-- Back Wall - Yellow -->
+            <a-box position="0 1.5 3.5" width="7" height="3" depth="0.1" material="src:#mur-text"></a-box> <!--color="yellow"-->
             <!-- Mur gauche -->
             <!-- Sommet mur gauche -->
-            <a-box position="-3.5 2.8 0" width="0.1" height="0.4" depth="7" color="orange"></a-box>
+            <a-box position="-3.5 2.85 -0.75" width="0.1" height="0.3" depth="1.5" material="src:#mur-text"></a-box> <!--color="orange"-->
+            <!-- Porte -->
+            <a-box position="-3.5 1.35 -0.75" width="0.1" height="2.7" depth="1.5" material="color: brown"></a-box> <!--color="orange"-->
             <!-- Gauche du mur gauche (direction mur arrière) -->
-            <a-box position="-3.5 1.3 1.75" width="0.1" height="2.6" depth="3.5" color="orange"></a-box>
+            <a-box position="-3.5 1.5 1.75" width="0.1" height="3" depth="3.5" material="src:#mur-text"></a-box> <!--color="orange"-->
             <!-- Droite du mur gauche (direction mur frontal/fenêtre) -->
-            <a-box position="-3.5 1.3 -2.5" width="0.1" height="2.6" depth="2" color="orange"></a-box>
+            <a-box position="-3.5 1.5 -2.5" width="0.1" height="3" depth="2" material="src:#mur-text"></a-box> <!--color="orange"-->
 
-            <a-box position="3.5 1.5 0" width="0.1" height="3" depth="7" color="purple"></a-box>  <!-- Right Wall - Purple -->
+            <a-box position="3.5 1.5 0" width="0.1" height="3" depth="7" material="src:#mur-text"></a-box> <!--color="purple"-->
         
             <!-- Stores -->
             <a-entity position="0 2 -3.55">
                 <!-- Lamelles -->
                 <a-box position="0 0.8 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
-                <a-box position="0 0.6 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
+                <a-box position="0 0.6 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: black"></a-box>
                 <a-box position="0 0.4 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
                 <a-box position="0 0.2 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
                 <a-box position="0 0.0 0" rotation="-25 0 0" width="7" height="0.02" depth="0.1" material="color: darkgray"></a-box>
@@ -69,7 +75,7 @@
 
         <!-- Extérieur -->
         <!-- Sol -->
-            <a-plane position="0 0 -43" rotation="-90 0 0" width="100" height="80" color="lightgray"></a-plane>
+            <a-plane position="0 0 -43" rotation="-90 0 0" width="100" height="80" color="#7c7c7c"></a-plane>
             <!-- Lignes droites perpendiculaires fenêtre -->
             <a-plane position="0 0.01 -15" rotation="-90 -90 0" width="0.5" height="300" color="yellow"></a-plane>
             <a-plane position="0 0.002 -14.7" rotation="-90 -90 0" width="0.1" height="300" color="black"></a-plane>
@@ -82,10 +88,10 @@
             <!-- Cercle intérieur noir pour virage -->
             <a-circle position="-7 0.004 -10" rotation="-90 0 0" radius="4.7" color="black" segment ="64"></a-circle>
             <!-- Cercle gris intérieur pour masquage -->
-            <a-circle position="-7 0.005 -10" rotation="-90 0 0" radius="4.62" color="lightgray"></a-circle>
+            <a-circle position="-7 0.005 -10" rotation="-90 0 0" radius="4.62" color="#7c7c7c"></a-circle>
             <!-- Plans gris pour masquage -->
-            <a-plane position="-7 0.006 -6.99" rotation="-90 0 0" width="12" height="6" color="lightgray"></a-plane>
-            <a-plane position="-3.5 0.007 -11.9" rotation="-90 0 0" width="7" height="5.5" color="lightgray"></a-plane>
+            <a-plane position="-7 0.006 -6.99" rotation="-90 0 0" width="12" height="6" color="#7c7c7c"></a-plane>
+            <a-plane position="-3.5 0.007 -11.9" rotation="-90 0 0" width="7" height="5.5" color="#7c7c7c"></a-plane>
             <!-- Lignes noire pour masque reste virage -->
             <a-plane position="-3.5 0.01 -14.7" rotation="-90 -90 0" width="0.1" height="7" color="black"></a-plane>
             <a-plane position="-7 0.01 -15.3" rotation="-90 -90 0" width="0.1" height="300" color="black"></a-plane>
@@ -106,6 +112,10 @@
       
         <!-- Lumière ambiante simple -->
         <a-light type="ambient" color="#fff"></a-light>
+
+        <!-- <a-sky src="#sky"></a-sky> -->
+        <a-sky color="#AAA"></a-sky>
+        
     </a-scene>
       
     <!-- Script perso -->

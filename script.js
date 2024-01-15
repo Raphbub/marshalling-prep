@@ -12,6 +12,7 @@ function addGamepadMsg() {
 }
 
 // Action pour, de façon répétée, vérifier si le bouton X [0] est pressé
+// Repris en partie de StackOverflow, cf sources_ref
 function removeRectGpPressed(e) {
     let gp = navigator.getGamepads()[e.gamepad.index];
     // Fonction à exécuter en continu pour saisir l'appui sur la touche
@@ -39,7 +40,7 @@ Cette fonction a été améliorée avec l'aide de ChatGPT à l'aide du prompt su
 I want that instead of instantly fading, there is a countdown of 5 seconds (shown on screen)
 before it starts fading*/
 function fadeRectangle() {
-  let countdown = 5; // Countdown duration in seconds
+  let countdown = 5;
   let countdownDisplay = document.createElement('p');
   countdownDisplay.id = 'countdown';
   countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
@@ -65,7 +66,6 @@ function fadeRectangle() {
       }
   }, 1000);
 
-    
 }
 
 // Ajouter les deux EV aux évènements respectifs
@@ -76,27 +76,12 @@ function startAnimations() {
   playAlarmClock();
 }
 
-function playAlarmClock() {
-  let alarme = document.getElementById('alarm-clock-ent');
-  alarme.setAttribute('volume', 0.05);
-  alarme.playSound();
-}
-
-// document.getElementById('alarm-clock-ent').setEventListener("loaded", function () {
-//   console.log("HEHO")
-// })
-
 /* Pour gagner un peu de temps de chargement, on attend que le contenu soit chargé
 avant d'ajouter le modèle de l'avion à la scène (en dehors du champ de vision) 
 Adapté de la génération par ChatGPT pour le prompt 'In A-Frame, using javascript, write a function
 using the loaded event so that a model is added to the scene only when loaded' */
 document.addEventListener('DOMContentLoaded', function() {
   
-  // document.querySelector('#alarm-clock-ent').setEventListener("sound-loaded", function () {
-  //   console.log("HEHO")
-  // })
-
-
   document.querySelector('#piper-plane').addEventListener('loaded', function () {
     // On sélectionne la scène et on créé un objet
     var sceneEl = document.querySelector('a-scene');
@@ -131,6 +116,13 @@ function movePlaneAlongX(deltaX, negative = true) {
     position.x += deltaX;
   }
 
+  if (position.x < -150) {
+    console.log("HEHO");
+  }
+
   // Changer la position avec les nouvelles coordonnées
   plane.setAttribute('position', position);
 }
+
+// Pour tester dans la console
+// setInterval(movePlaneAlongX, 50, 1)

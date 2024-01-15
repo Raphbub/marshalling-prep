@@ -8,6 +8,12 @@ Ce document sert à retrouver facilement les différents éléments de code util
 - Avion "Piper PA-18 Supercub" par *lucas_pl* : [https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070](https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070)
 - Bruitage moteur, Pixabay : [https://pixabay.com/sound-effects/propellerwav-14433/](https://pixabay.com/sound-effects/propellerwav-14433/)
 
+### Textures
+Pour celles prises sur PolyHaven (Licence CC0) :
+- Mur en ciment (004), *Baglioni C. & Barresi D*, [https://polyhaven.com/a/concrete_wall_004](https://polyhaven.com/a/concrete_wall_004)
+- Mur en ciment (008), *Baglioni C. & Barresi D*, [https://polyhaven.com/a/concrete_wall_008](https://polyhaven.com/a/concrete_wall_008)
+- Tuiles en caoutchouc, *Amal Kumar*, [https://polyhaven.com/a/rubber_tiles](https://polyhaven.com/a/rubber_tiles)
+
 ### Gamepad controllers
 Pour la librairie A-Frame Extras, au niveau des contrôles du mouvement : [https://github.com/c-frame/aframe-extras/tree/master/src/controls](https://github.com/c-frame/aframe-extras/tree/master/src/controls)
 

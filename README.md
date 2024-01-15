@@ -20,7 +20,8 @@ Pour profiter de cette scène VR, il faut procéder de la façon suivante:
 4. Ouvrir la page web correspondante (localhost:xxxx)
 5. Autoriser la lecture de média audio et vidéo, si ce n'est pas déjà fait
 6. Réactualiser la page
-7. Profiter de l'expérience (parfois, il est nécessaire de "réveiller" sa manette en appuyant sur un bouton)
+7. (Facultatif, mais plus agréable) Attendre une petite dizaine de seconde...
+8. Profiter de l'expérience (parfois, il est nécessaire de "réveiller" sa manette en appuyant sur un bouton)
 
 ### Technologies
 
