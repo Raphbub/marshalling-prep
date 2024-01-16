@@ -4,10 +4,13 @@ Ce document sert à retrouver facilement les différents éléments de code util
 
 ## Assets
 
-- Alarme (réveil), Pixabay, : [https://pixabay.com/sound-effects/bedside-clock-alarm-95792/](https://pixabay.com/sound-effects/bedside-clock-alarm-95792/)
-- Avion "Piper PA-18 Supercub" par *lucas_pl* : [https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070](https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070)
-- Bruitage moteur, Pixabay : [https://pixabay.com/sound-effects/propellerwav-14433/](https://pixabay.com/sound-effects/propellerwav-14433/)
-- Bruitage neon, SoundsForYou : [https://pixabay.com/fr/sound-effects/electric-hum-141075/](https://pixabay.com/fr/sound-effects/electric-hum-141075/)
+- Alarme (réveil), *Pixabay*, [https://pixabay.com/sound-effects/bedside-clock-alarm-95792/](https://pixabay.com/sound-effects/bedside-clock-alarm-95792/)
+- Avion "Piper PA-18 Supercub" par *lucas_pl*, [https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070](https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070)
+- Bruitage moteur, *Pixabay*, [https://pixabay.com/sound-effects/propellerwav-14433/](https://pixabay.com/sound-effects/propellerwav-14433/)
+- Bruitage neon, *SoundsForYou*, [https://pixabay.com/fr/sound-effects/electric-hum-141075/](https://pixabay.com/fr/sound-effects/electric-hum-141075/)
+- Bureau, *saeed khalili*, [https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8](https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8)
+- Réveil, *cmdigital888*, [https://sketchfab.com/3d-models/digital-alarm-clock-ed977da6f8ee49f5ae7e1f5c642ba3b8](https://sketchfab.com/3d-models/digital-alarm-clock-ed977da6f8ee49f5ae7e1f5c642ba3b8)
+- Table en chêne, *kursive*, [https://sketchfab.com/3d-models/oak-dinner-table-5b8c378e63f04df7b344298e638562f5](https://sketchfab.com/3d-models/oak-dinner-table-5b8c378e63f04df7b344298e638562f5)
 
 ### Textures
 Pour celles prises sur PolyHaven (Licence CC0) :
