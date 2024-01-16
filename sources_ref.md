@@ -6,11 +6,16 @@ Ce document sert à retrouver facilement les différents éléments de code util
 
 - Alarme (réveil), *Pixabay*, [https://pixabay.com/sound-effects/bedside-clock-alarm-95792/](https://pixabay.com/sound-effects/bedside-clock-alarm-95792/)
 - Avion "Piper PA-18 Supercub" par *lucas_pl*, [https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070](https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070)
+- Bâtons lumineux, *VOiD1 Gaming*, [https://void1gaming.itch.io/free-marshalling-wands-collection](https://void1gaming.itch.io/free-marshalling-wands-collection)
 - Bruitage moteur, *Pixabay*, [https://pixabay.com/sound-effects/propellerwav-14433/](https://pixabay.com/sound-effects/propellerwav-14433/)
 - Bruitage neon, *SoundsForYou*, [https://pixabay.com/fr/sound-effects/electric-hum-141075/](https://pixabay.com/fr/sound-effects/electric-hum-141075/)
 - Bureau, *saeed khalili*, [https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8](https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8)
+- Casier, *Dmitriy Mitroshin*, [https://sketchfab.com/3d-models/locker-equipment-fae22ece4d764979aafd614ebe09956d](https://sketchfab.com/3d-models/locker-equipment-fae22ece4d764979aafd614ebe09956d)
+- Casque, *ReferenceLibrary*, [https://sketchfab.com/3d-models/msa-sordin-supreme-pro-x-9408edd069d74261a1093ddb1d5eb6f5](https://sketchfab.com/3d-models/msa-sordin-supreme-pro-x-9408edd069d74261a1093ddb1d5eb6f5)
+- "Jaquette", *Connections XR*, [https://sketchfab.com/3d-models/jacket-0ef825d04a05436f8a91c1ac489366cf](https://sketchfab.com/3d-models/jacket-0ef825d04a05436f8a91c1ac489366cf)
 - Réveil, *cmdigital888*, [https://sketchfab.com/3d-models/digital-alarm-clock-ed977da6f8ee49f5ae7e1f5c642ba3b8](https://sketchfab.com/3d-models/digital-alarm-clock-ed977da6f8ee49f5ae7e1f5c642ba3b8)
 - Table en chêne, *kursive*, [https://sketchfab.com/3d-models/oak-dinner-table-5b8c378e63f04df7b344298e638562f5](https://sketchfab.com/3d-models/oak-dinner-table-5b8c378e63f04df7b344298e638562f5)
+- Tabouret, *Kozlov Maksim*, [https://sketchfab.com/3d-models/simple-stool-free-2bae1831fdeb4078add64da2767ab0aa](https://sketchfab.com/3d-models/simple-stool-free-2bae1831fdeb4078add64da2767ab0aa)
 
 ### Textures
 Pour celles prises sur PolyHaven (Licence CC0) :
