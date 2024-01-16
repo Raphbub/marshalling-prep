@@ -194,7 +194,9 @@ function flickerNeonLight() {
 // Animation de se lever au début
 function getUp() {
   let rig = document.getElementById('rig');
+  // Reset si bougé pendant l'écran noir
+  rig.setAttribute('position', {x:0.5, y:1.25, z:2.3})
   // Ajout de l'animation au rig
-  let anim = 'property: position; to: 0.1 1.75 2.2; dur: 1500; easing: linear;';
+  let anim = 'property: position; to: 0.1 1.75 2.2; dur: 1100; easing: linear;';
   rig.setAttribute('animation', anim);
 }
