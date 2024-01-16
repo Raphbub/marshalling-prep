@@ -17,7 +17,8 @@
         <p>Récupérez vos affaires avant de sortir sur le tarmac</p>
         <br>      
     </div>
-    <a-scene fog="type: linear; color: #AAA; far: 35; near: 10">
+    <a-scene>
+    <!-- <a-scene fog="type: linear; color: #AAA; far: 35; near: 10"> -->
         <!-- Chargement des assets -->
         <a-assets>
             <audio id="alarm-clock" src="assets/alarm-clock-short.mp3" preload="auto"></audio>
@@ -27,6 +28,8 @@
             <a-asset-item id="table" src="assets/table.gltf"></a-asset-item>
             <a-asset-item id="bureau" src="assets/bureau.gltf"></a-asset-item>
             <a-asset-item id="reveil" src="assets/reveil.gltf"></a-asset-item>
+            <a-asset-item id="casier" src="assets/casier.gltf"></a-asset-item>
+            <a-asset-item id="wand" src="assets/wand.gltf"></a-asset-item>
             <img id="sol-text" src="assets/rubber_tiles_diff_2k.jpg">
             <img id="mur-text" src="assets/concrete_wall_004_diff_2k.jpg">
             <img id="plafond-text" src="assets/concrete_wall_008_diff_2k.jpg">
@@ -80,10 +83,14 @@
             <a-box position="-3.5 1.5 -2.5" width="0.1" height="3" depth="2" material="src:#mur-text"></a-box>
 
             <a-box position="3.5 1.5 0" width="0.1" height="3" depth="7" material="src:#mur-text"></a-box>
+
+            <!-- Mobilier -->
             <a-entity gltf-model="#bureau" position="1.63 0.03 2.191" rotation="0 180 0" scale="0.04 0.04 0.04"></a-entity>
             <a-entity gltf-model="#table" position="2.83 0 -0.971" rotation="0 0 0" scale="1.25 1.51 1.4"></a-entity>
             <a-entity gltf-model="#reveil" position="-0.002 1.240 1.251" rotation="0 30 0" scale="1.03 1.03 1.03"></a-entity>
-        
+            <a-entity gltf-model="#casier" position="-3.2 0 2.45" rotation="0 90 0" scale="1 1 1"></a-entity>
+            <a-entity id="wand2" gltf-model="#wand" position="0.1 0.5 0.5" rotation="0 0 0" scale="1 1 1"></a-entity>
+            
             <!-- Stores -->
             <a-entity position="0 2 -3.55">
                 <!-- Lamelles -->
