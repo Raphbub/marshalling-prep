@@ -58,6 +58,7 @@ function fadeRectangle() {
           clearInterval(countdownInterval);
           // Start fading
           rect.style.opacity = '0';
+          getUp();
           setTimeout(function() {
               rect.remove();
           }, 1500);
@@ -188,3 +189,12 @@ function flickerNeonLight() {
 }
 
 // Déclenchement aléatoire sur un des deux ou les deux
+// À compléter
+
+// Animation de se lever au début
+function getUp() {
+  let rig = document.getElementById('rig');
+  // Ajout de l'animation au rig
+  let anim = 'property: position; to: 0.1 1.75 2.2; dur: 1500; easing: linear;';
+  rig.setAttribute('animation', anim);
+}
