@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.querySelector('#piper-plane').addEventListener('loaded', function () {
     // On sélectionne la scène et on créé un objet
-    var sceneEl = document.querySelector('a-scene');
-    var modelEl = document.createElement('a-obj-model');
+    let sceneEl = document.querySelector('a-scene');
+    let modelEl = document.createElement('a-obj-model');
 
     // Définition des attributs
     modelEl.setAttribute('id', 'plane-model');
@@ -154,6 +154,37 @@ function movePlaneAlongX(deltaX, negative = true) {
 // Pour tester dans la console
 // setInterval(movePlaneAlongX, 50, 1)
 
-// Clignotement des néons
+// Jouer le son du neon
+function playNeonSound() {
+  document.getElementById('neon-sound-ent').components.sound.playSound()
+}
+
+// Clignotement du néon
+function flickerNeonLight() {
+  // Récupérer la lumière et son intensité
+  let neon = document.getElementById('neon-light');
+  let intensiteDepart = neon.getAttribute('light').intensity;
+  // Clignoter entre 1 et 3 fois
+  let flicker = Math.ceil(Math.random() * 3);
+  // Clignotement tout les 200ms
+  let countdownInterval = setInterval(function() {
+    // Si "long" clignotement
+    if(flicker > 2) {
+      console.log("heho");
+      playNeonSound();
+    } 
+    flicker--
+    neon.setAttribute('light', 'intensity', 0);
+    setTimeout(function() {
+      neon.setAttribute('light', 'intensity', intensiteDepart/2);
+      /* Mettre la condition dans le setTimeout, sinon l'intensité est 
+      divisée par 2 après avoir été réinitialisée >.< */
+      if (flicker <= 0) {
+        neon.setAttribute('light', 'intensity', intensiteDepart);
+        clearInterval(countdownInterval);
+      }
+    }, 100);
+  }, 200);
+}
 
 // Déclenchement aléatoire sur un des deux ou les deux

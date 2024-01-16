@@ -21,6 +21,7 @@
         <!-- Chargement des assets -->
         <a-assets>
             <audio id="alarm-clock" src="assets/alarm-clock-short.mp3" preload="auto"></audio>
+            <audio id="neon-sound" src="assets/electric-hum-short.mp3" preload="auto"></audio>
             <a-asset-item id="piper-plane" src="assets/piper_pa18.obj"></a-asset-item>
             <a-asset-item id="piper-plane-material" src="assets/piper_pa18.mtl"></a-asset-item>
             <img id="sol-text" src="assets/rubber_tiles_diff_2k.jpg">
@@ -30,6 +31,7 @@
             <!-- <audio id="prop-sound" src="assets/propeller.mp3" preload="auto"></audio> -->
         </a-assets>
         <a-sound id="alarm-clock-ent" src="#alarm-clock" autoplay="false" position="0 2 5"></a-sound>
+        <a-sound id="neon-sound-ent" src="#neon-sound" autoplay="false" position="0 2 0"></a-sound>
         <!-- <a-entity id="prop-sound-ent" sound="src: assets/propeller.mp3; autoplay: false"></a-entity>
         <a-entity id="alarm-clock-ent" sound="src: assets/alarm-clock.mp3; autoplay: false"></a-entity> -->
         <!-- <a-obj-model src="#piper-plane" mtl="#piper-plane-material" position="10 -0.3 -15" scale="1 1 1" rotation="-12 -90 0"></a-obj-model> -->
@@ -44,6 +46,7 @@
             <a-box position="0 2.9 0" width="0.1" height="0.02" depth="1.5" material="color: black"></a-box>
             <!-- Tube -->
             <a-cylinder position="0 2.86 0" radius="0.03" height="1.32" rotation="90 0 0" material="color: white"></a-cylinder>
+            <a-entity id="neon-light" light="type: point; intensity: 3; distance: 6; decay: 1; castShadow:true;" position="0 2.5 0"></a-entity>
             
             <!-- Murs -->
             <a-box position="0 0.5 -3.45" width="7" height="1" depth="0.1" material="src:#mur-text"></a-box>
@@ -144,7 +147,7 @@
         </a-entity>
       
         <!-- Lumière ambiante simple -->
-        <a-light type="ambient" color="#AAA"></a-light>
+        <a-light type="ambient" color="#AAA" intensity="1"></a-light>
 
         <!-- <a-sky src="#sky"></a-sky> -->
         <a-sky color="#AAA"></a-sky>

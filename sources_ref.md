@@ -7,6 +7,7 @@ Ce document sert à retrouver facilement les différents éléments de code util
 - Alarme (réveil), Pixabay, : [https://pixabay.com/sound-effects/bedside-clock-alarm-95792/](https://pixabay.com/sound-effects/bedside-clock-alarm-95792/)
 - Avion "Piper PA-18 Supercub" par *lucas_pl* : [https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070](https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070)
 - Bruitage moteur, Pixabay : [https://pixabay.com/sound-effects/propellerwav-14433/](https://pixabay.com/sound-effects/propellerwav-14433/)
+- Bruitage neon, SoundsForYou : [https://pixabay.com/fr/sound-effects/electric-hum-141075/](https://pixabay.com/fr/sound-effects/electric-hum-141075/)
 
 ### Textures
 Pour celles prises sur PolyHaven (Licence CC0) :
