@@ -1,0 +1,192 @@
+{
+    "asset": {
+        "generator": "https://3dviewer.net",
+        "version": "2.0"
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "Var_3_Base_low",
+            "matrix": [
+                100,
+                0,
+                0,
+                0,
+                0,
+                -0.0000162920679613876,
+                -99.99999999999866,
+                0,
+                0,
+                99.99999999999866,
+                -0.0000162920679613876,
+                0,
+                -100,
+                0,
+                0,
+                1
+            ],
+            "children": [
+                1
+            ]
+        },
+        {
+            "mesh": 0
+        }
+    ],
+    "materials": [
+        {
+            "name": "Marshalling Wands",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "baseColorTexture": {
+                    "index": 0
+                }
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE",
+            "normalTexture": {
+                "index": 1
+            }
+        },
+        {
+            "name": "Marshalling Wands Glass",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.6038273388475408,
+                    0.6038273388475408,
+                    0.6038273388475408,
+                    1
+                ]
+            },
+            "emissiveFactor": [
+                0,
+                0,
+                0
+            ],
+            "doubleSided": true,
+            "alphaMode": "OPAQUE"
+        }
+    ],
+    "meshes": [
+        {
+            "name": "Var_3_Base_low",
+            "primitives": [
+                {
+                    "attributes": {
+                        "POSITION": 1,
+                        "NORMAL": 2,
+                        "TEXCOORD_0": 3
+                    },
+                    "mode": 4,
+                    "material": 0,
+                    "indices": 0
+                }
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "uri": "wand.bin",
+            "byteLength": 33696
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 3744,
+            "target": 34963
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 3744,
+            "byteLength": 11232,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 14976,
+            "byteLength": 11232,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 26208,
+            "byteLength": 7488,
+            "target": 34962
+        }
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 936,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 936,
+            "min": [
+                -0.025916170328855515,
+                -0.027249814942479134,
+                0
+            ],
+            "max": [
+                0.025916073471307755,
+                0.02724982611835003,
+                0.37000003457069397
+            ],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 936,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 936,
+            "type": "VEC2"
+        }
+    ],
+    "images": [
+        {
+            "uri": "Marshalling Wands_Marshalling Wand_BaseColor.png"
+        },
+        {
+            "uri": "Marshalling Wands_Marshalling Wand_Normal.png"
+        }
+    ],
+    "textures": [
+        {
+            "source": 0
+        },
+        {
+            "source": 1
+        }
+    ]
+}
