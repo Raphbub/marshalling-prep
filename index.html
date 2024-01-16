@@ -24,6 +24,9 @@
             <audio id="neon-sound" src="assets/electric-hum-short.mp3" preload="auto"></audio>
             <a-asset-item id="piper-plane" src="assets/piper_pa18.obj"></a-asset-item>
             <a-asset-item id="piper-plane-material" src="assets/piper_pa18.mtl"></a-asset-item>
+            <a-asset-item id="table" src="assets/table.gltf"></a-asset-item>
+            <a-asset-item id="bureau" src="assets/bureau.gltf"></a-asset-item>
+            <a-asset-item id="reveil" src="assets/reveil.gltf"></a-asset-item>
             <img id="sol-text" src="assets/rubber_tiles_diff_2k.jpg">
             <img id="mur-text" src="assets/concrete_wall_004_diff_2k.jpg">
             <img id="plafond-text" src="assets/concrete_wall_008_diff_2k.jpg">
@@ -77,6 +80,9 @@
             <a-box position="-3.5 1.5 -2.5" width="0.1" height="3" depth="2" material="src:#mur-text"></a-box>
 
             <a-box position="3.5 1.5 0" width="0.1" height="3" depth="7" material="src:#mur-text"></a-box>
+            <a-entity gltf-model="#bureau" position="1.63 0.03 2.191" rotation="0 180 0" scale="0.04 0.04 0.04"></a-entity>
+            <a-entity gltf-model="#table" position="2.83 0 -0.971" rotation="0 0 0" scale="1.25 1.51 1.4"></a-entity>
+            <a-entity gltf-model="#reveil" position="-0.002 1.240 1.251" rotation="0 30 0" scale="1.03 1.03 1.03"></a-entity>
         
             <!-- Stores -->
             <a-entity position="0 2 -3.55">
@@ -141,9 +147,9 @@
         à voir si le temps sera suffisant pour la définir) -->
         <a-entity
             id="rig"
-            position="0 0 0"
+            position="0.5 1.25 2.3"
             movement-controls="controls: gamepad,keyboard; speed: 0.15; constrainToNavMesh: true">
-            <a-camera position="0 1.75 0"></a-camera>
+            <a-camera position="0 0 0"></a-camera>
         </a-entity>
       
         <!-- Lumière ambiante simple -->
