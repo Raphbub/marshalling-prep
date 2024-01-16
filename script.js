@@ -78,7 +78,7 @@ function addTaxywayLights() {
   // Sélection de la scène
   let sceneEl = document.querySelector('a-scene');
   // Boucle sur la longueur plus ou moins visible du taxiway
-  for (let i = -47; i <= 50; i += 5) {
+  for (let i = -27; i <= 20; i += 5) {
     // Ajout du cylindre
     let cyl = document.createElement('a-cylinder');
     cyl.setAttribute('position', `${i} 0.01 -14.35`);
@@ -153,3 +153,7 @@ function movePlaneAlongX(deltaX, negative = true) {
 
 // Pour tester dans la console
 // setInterval(movePlaneAlongX, 50, 1)
+
+// Clignotement des néons
+
+// Déclenchement aléatoire sur un des deux ou les deux
