@@ -30,19 +30,17 @@
             <a-asset-item id="casier" src="assets/casier.gltf"></a-asset-item>
             <a-asset-item id="wand" src="assets/wand.gltf"></a-asset-item>
             <a-asset-item id="tabouret" src="assets/tabouret.gltf"></a-asset-item>
-            <a-asset-item id="casque" src="assets/casque.gltf"></a-asset-item>
-            <a-asset-item id="jaquette" src="assets/jacket.gltf"></a-asset-item>
+            <a-asset-item id="casque" src="assets/casque.glb"></a-asset-item>
+            <!-- <a-asset-item id="af1" src="assets/af1.gltf"></a-asset-item> -->
+            <!-- <a-asset-item id="jaquette" src="assets/jacket.gltf"></a-asset-item> -->
             <img id="sol-text" src="assets/rubber_tiles_diff_2k.jpg">
             <img id="mur-text" src="assets/concrete_wall_004_diff_2k.jpg">
             <img id="plafond-text" src="assets/concrete_wall_008_diff_2k.jpg">
             <img id="porte-text" src="assets/plywood_diff_2k.jpg">
-            <!-- <audio id="prop-sound" src="assets/propeller.mp3" preload="auto"></audio> -->
+            <audio id="prop-sound" src="assets/propeller.mp3" preload="auto"></audio>
         </a-assets>
         <a-sound id="alarm-clock-ent" src="#alarm-clock" autoplay="false" position="0 2 5"></a-sound>
-        <a-sound id="neon-sound-ent" src="#neon-sound" autoplay="false" position="0 2 0"></a-sound>
-        <!-- <a-entity id="prop-sound-ent" sound="src: assets/propeller.mp3; autoplay: false"></a-entity>
-        <a-entity id="alarm-clock-ent" sound="src: assets/alarm-clock.mp3; autoplay: false"></a-entity> -->
-        <!-- <a-obj-model src="#piper-plane" mtl="#piper-plane-material" position="10 -0.3 -15" scale="1 1 1" rotation="-12 -90 0"></a-obj-model> -->
+        
         <!-- Pièce 7x7x3 -->
             <!-- Sol -->
             <a-box position="0 0 0" width="7" height="0.1" depth="7" material="src:#sol-text"></a-box>
@@ -53,7 +51,9 @@
             <!-- Base -->
             <a-box position="0 2.9 0" width="0.1" height="0.02" depth="1.5" material="color: black"></a-box>
             <!-- Tube -->
-            <a-cylinder position="0 2.86 0" radius="0.03" height="1.32" rotation="90 0 0" material="color: white"></a-cylinder>
+            <a-cylinder position="0 2.86 0" radius="0.03" height="1.32" rotation="90 0 0" material="color: white">
+                <a-sound id="neon-sound-ent" src="#neon-sound" autoplay="false"></a-sound>
+            </a-cylinder>
             <a-entity id="neon-light" light="type: point; intensity: 3; distance: 6; decay: 1; castShadow:true;" position="0 2.5 0"></a-entity>
             
             <!-- Murs -->
@@ -93,12 +93,12 @@
             <a-entity gltf-model="#casier" position="-3.2 0 2.45" rotation="0 90 0" scale="1 1 1"></a-entity>
             <a-entity gltf-model="#tabouret" position="-4.6 0.02 -3.57" rotation="0 0 0" scale="0.075 0.075 0.075"></a-entity>
             <!-- "Baguettes" -->
-            <a-entity id="wand_ent_1" gltf-model="#wand" position="2.4 3.270 -2.026" rotation="0 174.12 91.1" scale="0.02 0.02 0.02"></a-entity>
-            <a-entity id="wand_ent_2" gltf-model="#wand" position="2.33 3.270 -1.626" rotation="0 190.32 91.1" scale="0.02 0.02 0.02"></a-entity>
+            <a-entity id="wand_ent_1" class="clickable" gltf-model="#wand" position="2.4 3.270 -2.026" rotation="0 174.12 91.1" scale="0.02 0.02 0.02" raycaster-listen></a-entity>
+            <a-entity id="wand_ent_2" class="clickable" gltf-model="#wand" position="2.33 3.270 -1.626" rotation="0 190.32 91.1" scale="0.02 0.02 0.02" raycaster-listen></a-entity>
             <!-- Casque -->
-            <a-entity id="casque_ent" gltf-model="#casque" position="2.84 1.29 -0.294" rotation="-40.56 90 100" scale="0.0025 0.0025 0.0025"></a-entity>
+            <a-entity id="casque_ent" class="clickable" gltf-model="#casque" position="2.49 1.336 -0.431" rotation="0 45 103" scale="0.4 0.4 0.4" raycaster-listen></a-entity>
             <!-- "Jaquette" -->
-            <a-entity id="jaque_ent" gltf-model="#jaquette" position="-2.537 1.22 2.48" rotation="0 270 0" scale="0.001 0.001 0.001"></a-entity>
+            <!-- <a-entity id="jaque_ent" gltf-model="#jaquette" position="-2.537 1.22 2.48" rotation="0 270 0" scale="0.001 0.001 0.001"></a-entity> -->
 
             <!-- Stores -->
             <a-entity position="0 2 -3.55">
@@ -120,6 +120,13 @@
             </a-entity>
 
         <!-- Extérieur -->
+        <!-- Avion -->
+        <a-obj-model id="plane-model" class="clickable" src="#piper-plane" mtl="#piper-plane-material" 
+        position="50 -0.3 -15" scale="1 1 1" rotation="-12 -90 0">
+            <a-entity id="prop-sound-ent" sound="src: assets/propeller.mp3; autoplay: false"></a-entity>
+        </a-obj-model>
+
+        <!-- <a-entity gltf-model="#af1" position="50 -0.3 -15" scale="1 1 1" rotation="-12 -90 0"></a-entity> -->
         <!-- Sol -->
             <a-plane position="0 0 -43" rotation="-90 0 0" width="100" height="80" color="#7c7c7c"></a-plane>
             <!-- Lignes droites perpendiculaires fenêtre -->
@@ -165,7 +172,14 @@
             id="rig"
             position="0.5 1.25 2.3"
             movement-controls="controls: gamepad,keyboard; speed: 0.15; constrainToNavMesh: true">
-            <a-camera position="0 0 0"></a-camera>
+            <a-camera position="0 0 0">
+                <a-entity cursor raycaster="objects: .clickable; showLine: true;" 
+                    position="0 -0.05 0"
+                    geometry="primitive: ring; radiusInner: 0.015; radiusOuter: 0.02"
+                    material="color: white; shader: flat">
+                </a-entity>
+                </a-entity>
+            </a-camera>
         </a-entity>
       
         <!-- Lumière ambiante simple -->
