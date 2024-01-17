@@ -6,11 +6,11 @@ Cette expérience VR nous plonge dans la peau d'un *groud marshaller*, une perso
 
 #### Déroulé
 
-Au début, un écran blanc attend l'utilisateur avec un message sur l' objectif général. J'ai inclus ce message et les fonctionnalités liées (détection d'une touche (clavier ou manette) pressée, *fade-out* du message) en pensant que cette interaction de l'utilisateur permettrait de lire du son ensuite... Je me suis trompé (il faut juste changer ça dans les réglages du navigateur), mais j'ai quand même laissé cette fonctionnalité qui permet aussi de confirmer que la manette a été détectée. J'ai également rajouté un décompte afin d'essayer de gagner un peu de temps avec le chargement du son (cf. [issue n°3](https://github.com/Raphbub/marshalling-prep/issues/3))...
+Au début, un écran noir attend l'utilisateur avec un message sur l'objectif général. Une fois la scène chargée, l'utilisateur peut appuyer sur la touche X ou une touche de son clavier pour démarrer la scène (après un petit décompte).
 
-Pendant le *fade-out*, on entend une sonnerie et on se retrouve dans une pièce avec une grande fenêtre en face de nous (avec un store à lamelles couvrant sa partie supérieure) et une porte sur la gauche. Par la fenêtre, on aperçoit le tarmac d'un aéroport avec une ligne de guidage pour le roulage au sol (*taxiway*). Cette ligne est bordée de guides lumineux, des petites lumières vertes. La ligne se divise sur la gauche avec un virage qui amène derrière le mur de la porte.
+Pendant le *fade-out*, une sonnerie retentit et le personnage que l'on incarne se lève sur les derniers sons. On se retrouve une pièce avec une grande fenêtre en face de nous (avec un store à lamelles couvrant sa partie supérieure) et une porte sur la gauche. Par la fenêtre, on aperçoit le tarmac d'un aéroport avec une ligne de guidage pour le roulage au sol (*taxiway*). Cette ligne est bordée de guides lumineux, des petites lumières vertes. La ligne se divise sur la gauche avec un virage qui amène derrière le mur de la porte. Parfois, un petit avion passe sur cette ligne et l'on entend le bruit de son moteur.
 
-La pièce est froide et grise, principalement faite de ciment avec une porte en bois. Elle est éclairée par deux néons clignotants à intervalles irréguliers. Le mobilier est sommaire...
+La pièce est froide et grise, principalement faite de ciment avec une porte en bois. Elle est éclairée par un néon qui a tendance à clignoter et grésiller quelque peu. Le mobilier est sommaire : un bureau, une chaise de bureau, un tabouret, une petite table et un casier. Sur la table se trouvent un casque de protection auditive et des baguettes lumineuses servant à guider les avions. Il faut s'emparer de se matériel avant de se diriger vers la porte pour poursuivre l'aventure...
 
 ### Installation / lancement
 
@@ -31,14 +31,20 @@ Le travail est réalisé à l'aide d'[A-Frame](https://aframe.io/), une librairi
 
 ### Sources et ressources
 
-Le fichier [sources_ref.md](sources_ref.md) détaille un peu plus les différents éléments utilisés (blogs, tutos, documentation) pendant la conception du travail.
-
-On mentionnera ici la provenance des assets par pseudo ordre alphabétique.
-
-- [Alarme (réveil), Pixabay](https://pixabay.com/sound-effects/bedside-clock-alarm-95792/)
-- [Avion, lucas_pl](https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070)
-- [Bruitage moteur, Pixabay](https://pixabay.com/sound-effects/propellerwav-14433/)
+Le fichier [sources_ref.md](sources_ref.md) détaille les différents éléments utilisés (assets, blogs, tutos, documentation) pendant la conception du travail.
 
 ### Contexte de développement
 
 Ce projet a été développé dans le cadre du cours _Réalité virtuelle et augmentée_ dispensé par Isaac Pante (SLI, Lettres, UNIL)
+
+#### Difficultés rencontrées
+
+Pour une première avec de la modélisation 3D web, il y a quelques éléments problématiques qui n'ont pu être réglés (cf. [Issues](https://github.com/Raphbub/marshalling-prep/issues)).
+
+Les différents *assets* audio ont tendance à ne pas charger alors que, malgré leur simplicité, ils donnent du corps à la scène. Le réveil situe un peu l'intrigue et les sons de l'hélice et du néon habillent sonalement la scène. (Il paraît tout de même que le bruit fait par l'ordinateur en "rendant" la scène peut faire penser à un avion...)
+
+Les *assets* 3D sont assez différents les un des autres et un downscaling a été nécessaire sur certains éléments (ex. la veste haute visibilité du vestiaire) qui ralentissaient trop le modèle.
+
+Les interactions avec le curseur ont été plutôt compliquées à saisir et les quelques lumières de la pièce ne sont pas forcément optimalement placées ou orientée.
+
+Finalement, malgré les difficultés et la sobriété du projet, il a permis des apprentissages significatifs du développement de scènes 3D...avec quelques frustrations quand même.
