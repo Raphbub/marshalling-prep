@@ -8,24 +8,24 @@ function removeRectKeyPressed() {
 
 // Ajout du message relatif au gamepad
 function addGamepadMsg() {
-  document.getElementById('fullscreen-rect').innerHTML += "<p style='font-size: 14px;'>Manette détectée, appuyez sur X pour commencer</p>"
+  document.getElementById('fullscreen-rect').innerHTML += "<p style='font-size: 14px;'>Manette détectée, attendre la fin du chargement  et appuyez sur X pour commencer</p>"
 }
 
 // Action pour, de façon répétée, vérifier si le bouton X [0] est pressé
 // Repris en partie de StackOverflow, cf sources_ref
 function removeRectGpPressed(e) {
-    let gp = navigator.getGamepads()[e.gamepad.index];
-    // Fonction à exécuter en continu pour saisir l'appui sur la touche
-    let intervalID = setInterval(function() {
-      if (gp.buttons[0].pressed) {
-          // If the button is pressed, clear the interval
-          clearInterval(intervalID);
-          // On fait disparaître le rectangle
-          fadeRectangle();
-          // On enlève l'EV équivalent sur le clavier
-          document.removeEventListener('keydown', removeRectKeyPressed);
-      };
-    }, 100)
+  let gp = navigator.getGamepads()[e.gamepad.index];
+  // Fonction à exécuter en continu pour saisir l'appui sur la touche
+  let intervalID = setInterval(function() {
+    if (gp.buttons[0].pressed) {
+      // If the button is pressed, clear the interval
+      clearInterval(intervalID);
+      // On fait disparaître le rectangle
+      fadeRectangle();
+      // On enlève l'EV équivalent sur le clavier
+      document.removeEventListener('keydown', removeRectKeyPressed);
+    };
+  }, 50)
 }
 
 // Actions lors de la connexion du gamepad
@@ -48,25 +48,26 @@ function fadeRectangle() {
   rect.appendChild(countdownDisplay);
 
   let countdownInterval = setInterval(function() {
-      countdown--;
-      if(countdown == 3) {
-        document.getElementById('alarm-clock-ent').components.sound.playSound()
-        countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
-      } else if (countdown == 1) {
-        countdownDisplay.innerText = 'Début dans ' + countdown + ' seconde';
-      } else if (countdown <= 0) {
-          clearInterval(countdownInterval);
-          // Start fading
-          rect.style.opacity = '0';
-          getUp();
-          setTimeout(function() {
-              rect.remove();
-          }, 1500);
-      } else {
-        countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
-      }
+    countdown--;
+    if(countdown == 3) {
+      document.getElementById('alarm-clock-ent').components.sound.playSound()
+      countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
+    } else if (countdown == 1) {
+      countdownDisplay.innerText = 'Début dans ' + countdown + ' seconde';
+    } else if (countdown <= 0) {
+        clearInterval(countdownInterval);
+        // Start fading
+        rect.style.opacity = '0';
+        getUp();
+        randomNeonFlickering();
+        setTimeout(randomPlaneTaxiing, 6000);
+        setTimeout(function() {
+            rect.remove();
+        }, 1500);
+    } else {
+      countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
+    }
   }, 1000);
-
 }
 
 // Ajouter les deux EL aux évènements respectifs
@@ -110,50 +111,73 @@ using the loaded event so that a model is added to the scene only when loaded' *
 document.addEventListener('DOMContentLoaded', function() {
   addTaxywayLights();
 
-  document.querySelector('#piper-plane').addEventListener('loaded', function () {
-    // On sélectionne la scène et on créé un objet
-    let sceneEl = document.querySelector('a-scene');
-    let modelEl = document.createElement('a-obj-model');
+  // document.querySelector('#piper-plane').addEventListener('loaded', function () {
+  //   // On sélectionne la scène et on créé un objet
+  //   let sceneEl = document.querySelector('a-scene');
+  //   let modelEl = document.createElement('a-obj-model');
 
-    // Définition des attributs
-    modelEl.setAttribute('id', 'plane-model');
-    modelEl.setAttribute('src', '#piper-plane');
-    modelEl.setAttribute('mtl', '#piper-plane-material');
-    modelEl.setAttribute('position', '50 -0.3 -15');
-    modelEl.setAttribute('scale', '1 1 1');
-    // Pencher légèrement le modèle pour que la roue arrière "touche" le sol
-    modelEl.setAttribute('rotation', '-12 -90 0');
+  //   // Définition des attributs
+  //   modelEl.setAttribute('id', 'plane-model');
+  //   modelEl.setAttribute('src', '#piper-plane');
+  //   modelEl.setAttribute('mtl', '#piper-plane-material');
+  //   modelEl.setAttribute('position', '50 -0.3 -15');
+  //   modelEl.setAttribute('scale', '1 1 1');
+  //   // Pencher légèrement le modèle pour que la roue arrière "touche" le sol
+  //   modelEl.setAttribute('rotation', '-12 -90 0');
 
-    // Ajouter l'élément (avec ses attributs définis) à la scène
-    sceneEl.appendChild(modelEl);
-  });
+  //   // Ajouter l'élément (avec ses attributs définis) à la scène
+  //   sceneEl.appendChild(modelEl);
+  // });
 });
+
+function movePlane(dist, tps) {
+  // Récupérer le modèle de l'avion
+  let plane = document.getElementById('plane-model');
+  // Récupérer le son
+  let propSound = document.getElementById('prop-sound-ent');
+  propSound.components.sound.playSound();
+
+  let deplIntvl = setInterval(function() {
+    // Bouger l'avion de x dist
+    let xPos = movePlaneAlongX(dist);
+    // Quand il arrive dans le brouillard, on le repositionne
+    if (xPos <= -45) {
+      // Arrêt de la boucle intervalle, du son et réinitialisation
+      clearInterval(deplIntvl);
+      plane.setAttribute('position', '50 -0.3 -15');
+      propSound.components.sound.stopSound();
+    }
+  }, tps);
+}
 
 // Fonction de déplacement de l'avion
 function movePlaneAlongX(deltaX, negative = true) {
   // Récupérer le modèle de l'avion
   let plane = document.getElementById('plane-model');
-
   // Récupérer la position initiale
   let position = plane.getAttribute('position');
-
   // Augmenter ou diminuer la position d'une unité
   if (negative) {
     position.x -= deltaX;
   } else {
     position.x += deltaX;
   }
-
-  if (position.x < -150) {
-    console.log("HEHO");
-  }
-
   // Changer la position avec les nouvelles coordonnées
   plane.setAttribute('position', position);
+  return(position.x)
 }
 
 // Pour tester dans la console
-// setInterval(movePlaneAlongX, 50, 1)
+// movePlane(1, 50)
+
+/* Passage aléatoire de l'avion, comme pour le néon, la fonction a
+été en partie générée grâce à ChatGPT, prompt How can I have a function
+get called repeatedly in a range of time ? */
+function randomPlaneTaxiing() {
+  movePlane(0.5, 50);
+  let nextDelay = Math.random() * (90000 - 60000) + 60000;
+  setTimeout(randomPlaneTaxiing, nextDelay);
+}
 
 // Jouer le son du neon
 function playNeonSound() {
@@ -189,7 +213,13 @@ function flickerNeonLight() {
 }
 
 // Déclenchement aléatoire sur un des deux ou les deux
-// À compléter
+function randomNeonFlickering() {
+  flickerNeonLight();
+  let nextDelay = Math.random() * (80000 - 40000) + 40000;
+  setTimeout(randomNeonFlickering, nextDelay);
+}
+
+
 
 // Animation de se lever au début
 function getUp() {
@@ -200,3 +230,29 @@ function getUp() {
   let anim = 'property: position; to: 0.1 1.75 2.2; dur: 1100; easing: linear;';
   rig.setAttribute('animation', anim);
 }
+
+AFRAME.registerComponent('raycaster-listen', {
+	init: function () {
+    // Use events to figure out what raycaster is listening so we don't have to
+    // hardcode the raycaster.
+    this.el.addEventListener('raycaster-intersected', evt => {
+      this.raycaster = evt.detail.el;
+    });
+    this.el.addEventListener('raycaster-intersected-cleared', evt => {
+      this.raycaster = null;
+    });
+  },
+
+  tick: function () {
+    if (!this.raycaster) { return; }  // Not intersecting.
+
+    let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
+    if (!intersection) { return; }
+
+    // Calculate distance
+    let origin = this.raycaster.getAttribute('raycaster').origin;
+    let distance = intersection.point.distanceTo(new THREE.Vector3(origin.x, origin.y, origin.z));
+
+    console.log('Distance to intersected object:', distance);
+  }
+});
