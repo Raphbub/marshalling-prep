@@ -11,6 +11,8 @@ Ce document sert à retrouver facilement les différents éléments de code util
 - Bruitage moteur, *Pixabay*, [https://pixabay.com/sound-effects/propellerwav-14433/](https://pixabay.com/sound-effects/propellerwav-14433/)
 - Bruitage moteur jet, *Pixabay*, [https://pixabay.com/sound-effects/aircraft-landing-zurich-international-airport-28774/](https://pixabay.com/sound-effects/aircraft-landing-zurich-international-airport-28774/)
 - Bruitage neon, *SoundsForYou*, [https://pixabay.com/fr/sound-effects/electric-hum-141075/](https://pixabay.com/fr/sound-effects/electric-hum-141075/)
+- Bruitage succès court, *Pixabay*, [https://pixabay.com/sound-effects/short-success-sound-glockenspiel-treasure-video-game-6346/](https://pixabay.com/sound-effects/short-success-sound-glockenspiel-treasure-video-game-6346/)
+- Bruitage succès trompettes, *Pixabay*, [https://pixabay.com/sound-effects/success-fanfare-trumpets-6185/](https://pixabay.com/sound-effects/success-fanfare-trumpets-6185/)
 - Bureau, *saeed khalili*, [https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8](https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8)
 - Casier, *Dmitriy Mitroshin*, [https://sketchfab.com/3d-models/locker-equipment-fae22ece4d764979aafd614ebe09956d](https://sketchfab.com/3d-models/locker-equipment-fae22ece4d764979aafd614ebe09956d)
 - Casque, *Généré sur lumalbs.ai/genie*, prompt "An orange ear protection"

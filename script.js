@@ -222,6 +222,7 @@ function getUp() {
   rig.setAttribute('animation', anim);
 }
 
+// Composante objet de "quête" récupérables
 AFRAME.registerComponent('quest-item', {
   schema: {
     type: {type: 'string'}
@@ -240,7 +241,13 @@ AFRAME.registerComponent('quest-item', {
         // Play Sound
 
         // Change SVG
-        changeSvgElement(typeObj)
+        changeSvgElement(typeObj);
+        // Ajustement des objectifs (baguette ajusté dans la fonction dessus)
+        if (typeObj == "casque") {
+          objectives.casque = true;
+        } else if (typeObj == "veste") {
+          objectives.veste = true;
+        }
         // Remove object
         el.remove();
       }
@@ -259,6 +266,29 @@ function meanAbsDiffXZ(obj1, obj2) {
 
   return (diffX + diffZ) / 2;
 }
+
+
+// Composante porte ouvrable
+AFRAME.registerComponent('openable', {
+  init: function() {
+    // Fonction d'ouverture de porte / fin du jeu
+    this.finishGame = function () {
+      let allObjectives = Object.values(objectives).every(value => value === true);
+      let rigPos = document.getElementById('rig').getAttribute('position');
+      let objPos = el.getAttribute('position')
+
+      // Être proche de la porte et avoir rempli les objectifs
+      if (allObjectives && meanAbsDiffXZ(rigPos, objPos) < 1.1) {
+        // Son victoire
+        console.log("gagné");
+      }
+    }
+    this.el.addEventListener('click', this.finishGame);
+  },
+  remove: function () {
+      this.el.removeEventListener('click', this.finishGame);
+    }
+  })
 
 // Diminution du volume des sons
 function muffleSound() {
@@ -282,6 +312,7 @@ function changeSvgElement(objectif) {
     // On ne remplit la baguette de droite qui si celle de gauche est déjà "colorée"
     if (svgBagGauche.getAttribute('fill') == 'url(#barGradientWhiteBottom)') {
       svgBagDroite.setAttribute('fill', 'url(#barGradientWhiteBottom)');
+      objectives.baguettes = true;
     } else {
       svgBagGauche.setAttribute('fill', 'url(#barGradientWhiteBottom)');
     }
@@ -326,3 +357,9 @@ function flickerSVGobjectives() {
   }, 250);
 }
 
+// Sauvegarder la progression des objectifs
+let objectives = {
+  veste: false,
+  baguettes: false,
+  casque: false
+}
