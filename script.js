@@ -222,28 +222,43 @@ function getUp() {
   rig.setAttribute('animation', anim);
 }
 
-/* TODO NE MARCHE TOUJOURS PAS*/
-AFRAME.registerComponent('raycaster-listen', {
-  init: function () {
-      this.el.addEventListener('raycaster-intersected', evt => {
-          this.raycaster = evt.detail.el;
-      });
-      this.el.addEventListener('raycaster-intersected-cleared', evt => {
-          this.raycaster = null;
-      });
+AFRAME.registerComponent('quest-item', {
+  schema: {
+    type: {type: 'string'}
   },
 
-  tick: function () {
-      if (!this.raycaster) {
-          return; // No raycaster, exit the function
-      }
+  init: function () {
+    let el = this.el;
+    let typeObj = this.data.type
 
-      let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
-      if (intersection) {
-          console.log('Intersected entity:', intersection.el); // Log the intersected entity
+    // On compare la position (sans la hauteur) entre le rig et l'objet
+    // en dessous d'un certain seuil, on peut "prendre" l'objet
+    this.getObject = function () {
+      let rigPos = document.getElementById('rig').getAttribute('position');
+      let objPos = el.getAttribute('position')
+      if (meanAbsDiffXZ(rigPos, objPos) < 1.1) {
+        // Play Sound
+
+        // Change SVG
+        changeSvgElement(typeObj)
+        // Remove object
+        el.remove();
       }
+    }
+    this.el.addEventListener('click', this.getObject);
+  },
+  remove: function () {
+    this.el.removeEventListener('click', this.getObject);
   }
-});
+})
+
+// Calcul de la différence moyenne absolue entre 2 positions
+function meanAbsDiffXZ(obj1, obj2) {
+  let diffX = Math.abs(obj1.x - obj2.x);
+  let diffZ = Math.abs(obj1.z - obj2.z);
+
+  return (diffX + diffZ) / 2;
+}
 
 // Diminution du volume des sons
 function muffleSound() {

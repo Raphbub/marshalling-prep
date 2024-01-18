@@ -50,3 +50,6 @@ StackOverflow : [https://stackoverflow.com/questions/60498051/how-to-bind-an-eve
 ### Détection d'une pression d'un bouton de la manette
 - Tester les boutons de sa manette : [https://luser.github.io/gamepadtest/](https://luser.github.io/gamepadtest/)
 StackOverflow : [https://stackoverflow.com/questions/60804995/how-to-detect-a-button-press-with-gamepad-api](https://stackoverflow.com/questions/60804995/how-to-detect-a-button-press-with-gamepad-api)
+
+### Components A-Frame
+- Tutoriel vidéo avec raycasting et components : [https://www.youtube.com/watch?v=HrLsr-nzZGA](https://www.youtube.com/watch?v=HrLsr-nzZGA)
