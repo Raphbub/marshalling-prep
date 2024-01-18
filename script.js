@@ -80,7 +80,7 @@ window.addEventListener("gamepadconnected", gamePadConnected);
 
 
 // Ajout des lumières du taxiway
-function addTaxywayLights() {
+function addTaxiwayLights() {
   // Sélection de la scène
   let sceneEl = document.querySelector('a-scene');
   // Boucle sur la longueur plus ou moins visible du taxiway
@@ -107,7 +107,7 @@ function addTaxywayLights() {
   } 
 }
 
-addTaxywayLights();
+addTaxiwayLights();
 
 // Déplace l'avion donné sur une distance, tous les tps millisecondes
 function movePlane(dist, tps, planeId = 'plane-model') {
@@ -271,6 +271,18 @@ AFRAME.registerComponent('quest-item', {
     }
     this.el.addEventListener('click', this.getObject);
   },
+  tick: function () {
+    // Actuellement, il n'y a pas de vérification de l'élément cliqué et de sa distance.
+    // Possible de récupérer trois objets d'un coup.
+    /* Choix en partie généré par ChatGPT car je n'arrivais pas à éviter l'erreur
+    s'il n'y avait pas de gamepad */
+    let gamepad = navigator.getGamepads ? navigator.getGamepads()[0] : null;
+
+    // S'il y a un gamepad et que le bouton principale est appuyé
+    if (gamepad && gamepad.buttons[0].pressed) {
+      this.getObject();
+    }
+  },
   remove: function () {
     this.el.removeEventListener('click', this.getObject);
   }
@@ -306,7 +318,9 @@ AFRAME.registerComponent('openable', {
         finalSuccessSound.components.sound.playSound();
         // Remettre le fond devant
         rect.style.zIndex = 1200;
-        setTimeout(rect.style.transition = "opacity 5s ease-in-out;", 500);
+        setTimeout(function() {
+          rect.style.transition = "opacity 5s ease-in-out";
+        }, 500);
         rect.style.opacity = '1';
         // Ouvrir la porte
         setTimeout(rotateElement, 200, '#door-pivot', { x: 0, y: 45, z: 0 }, 2000)
@@ -314,6 +328,17 @@ AFRAME.registerComponent('openable', {
     }
     this.el.addEventListener('click', this.finishGame);
   },
+  // Actuellement si cette partie est activée, le jeu se termine au 4ème élément...
+  // tick: function () {
+  //   /* Choix en partie généré par ChatGPT car je n'arrivais pas à éviter l'erreur
+  //   s'il n'y avait pas de gamepad */
+  //   let gamepad = navigator.getGamepads ? navigator.getGamepads()[0] : null;
+
+  //   // S'il y a un gamepad et que le bouton principale est appuyé
+  //   if (gamepad && gamepad.buttons[0].pressed) {
+  //     this.finishGame();
+  //   }
+  // },
   remove: function () {
       this.el.removeEventListener('click', this.finishGame);
     }

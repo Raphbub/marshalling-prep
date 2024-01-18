@@ -55,3 +55,4 @@ StackOverflow : [https://stackoverflow.com/questions/60804995/how-to-detect-a-bu
 
 ### Components A-Frame
 - Tutoriel vidéo avec raycasting et components : [https://www.youtube.com/watch?v=HrLsr-nzZGA](https://www.youtube.com/watch?v=HrLsr-nzZGA)
+- En complément : [https://aframe.io/docs/1.5.0/introduction/writing-a-component.html](https://aframe.io/docs/1.5.0/introduction/writing-a-component.html)
