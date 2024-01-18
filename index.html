@@ -16,13 +16,15 @@
     <div id="fullscreen-rect">
         <p>Récupérez vos affaires avant de sortir sur le tarmac (&nearr;)</p>
         <br>
-        <p id="infos">Réveillez votre manette en appuyant sur un bouton ou appuyez sur une touche du clavier</p>
+        <p id="infos">Réveillez votre manette en appuyant sur X ou appuyez sur une touche du clavier</p>
     </div>
     <a-scene fog="type: linear; color: #AAA; far: 35; near: 10">
         <!-- Chargement des assets -->
         <a-assets>
             <audio id="alarm-clock" src="assets/alarm-clock-short.mp3" preload="auto"></audio>
             <audio id="neon-sound" src="assets/electric-hum-short.mp3" preload="auto"></audio>
+            <audio id="prop-sound" src="assets/propeller.mp3" preload="auto"></audio>
+            <audio id="aircraft-sound" src="assets/aircraft-short.mp3" preload="auto"></audio>
             <a-asset-item id="piper-plane" src="assets/piper_pa18.obj"></a-asset-item>
             <a-asset-item id="piper-plane-material" src="assets/piper_pa18.mtl"></a-asset-item>
             <a-asset-item id="table" src="assets/table.gltf"></a-asset-item>
@@ -32,15 +34,15 @@
             <a-asset-item id="wand" src="assets/wand.gltf"></a-asset-item>
             <a-asset-item id="tabouret" src="assets/tabouret.gltf"></a-asset-item>
             <a-asset-item id="casque" src="assets/casque.glb"></a-asset-item>
-            <!-- <a-asset-item id="af1" src="assets/af1.gltf"></a-asset-item> -->
+            <a-asset-item id="af1" src="assets/af1.gltf"></a-asset-item>
             <!-- <a-asset-item id="jaquette" src="assets/jacket.gltf"></a-asset-item> -->
             <img id="sol-text" src="assets/rubber_tiles_diff_2k.jpg">
             <img id="mur-text" src="assets/concrete_wall_004_diff_2k.jpg">
             <img id="plafond-text" src="assets/concrete_wall_008_diff_2k.jpg">
             <img id="porte-text" src="assets/plywood_diff_2k.jpg">
-            <audio id="prop-sound" src="assets/propeller.mp3" preload="auto"></audio>
+            
         </a-assets>
-        <a-sound id="alarm-clock-ent" src="#alarm-clock" autoplay="false" position="0 2 5"></a-sound>
+        <a-sound id="alarm-clock-ent" src="#alarm-clock" autoplay="false" position="0 2 5" volume="0.75"></a-sound>
         
         <!-- Pièce 7x7x3 -->
             <!-- Sol -->
@@ -75,8 +77,8 @@
                 <!-- Cadre sommet -->
                 <a-box position="-3.5 2.75 -0.75" width="0.2" height="0.1" depth="1.4" material="color: black"></a-box>
                 <!-- Poignée -->
-                <a-cylinder position="-3.5 1.55 -1.2" radius="0.025" height="0.3" rotation="90 90 0" material="color: #848484"></a-cylinder>
-                <a-cylinder position="-3.35 1.55 -1.08" radius="0.025" height="0.27" rotation="90 0 0" material="color: #848484"></a-cylinder>
+                <a-cylinder class = "clickable" position="-3.5 1.55 -1.2" radius="0.025" height="0.3" rotation="90 90 0" material="color: #848484"></a-cylinder>
+                <a-cylinder class = "clickable" position="-3.35 1.55 -1.08" radius="0.025" height="0.27" rotation="90 0 0" material="color: #848484"></a-cylinder>
                 <!-- "Tour" de poignée -->
                 <a-box position="-3.5 1.45 -1.2" width="0.15" height="0.4" depth="0.1" material="color: #afafaf"></a-box>
                 
@@ -123,11 +125,13 @@
         <!-- Extérieur -->
         <!-- Avion -->
         <a-obj-model id="plane-model" class="clickable" src="#piper-plane" mtl="#piper-plane-material" 
-        position="50 -0.3 -15" scale="1 1 1" rotation="-12 -90 0">
-            <a-entity id="prop-sound-ent" sound="src: assets/propeller.mp3; autoplay: false"></a-entity>
+        position="55 -0.3 -15" scale="1 1 1" rotation="-12 -90 0">
+            <a-entity id="prop-sound-ent" sound="src: #prop-sound; autoplay: false"></a-entity>
         </a-obj-model>
 
-        <!-- <a-entity gltf-model="#af1" position="50 -0.3 -15" scale="1 1 1" rotation="-12 -90 0"></a-entity> -->
+        <a-entity id="af1-ent" gltf-model="#af1" position="75 2.9 -28" scale="3 3 3" rotation="0 -90 0">
+            <a-entity id="aircraft-sound-ent" sound="src: #aircraft-sound; autoplay: false; loop:true" volume="100"></a-entity>
+        </a-entity>
         <!-- Sol -->
             <a-plane position="0 0 -43" rotation="-90 0 0" width="100" height="80" color="#7c7c7c"></a-plane>
             <!-- Lignes droites perpendiculaires fenêtre -->

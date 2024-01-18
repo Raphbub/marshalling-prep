@@ -133,30 +133,32 @@ document.addEventListener('DOMContentLoaded', function() {
   // });
 });
 
-function movePlane(dist, tps) {
+// Déplace l'avion donné sur une distance, tous les tps millisecondes
+function movePlane(dist, tps, planeId = 'plane-model') {
   // Récupérer le modèle de l'avion
-  let plane = document.getElementById('plane-model');
-  // Récupérer le son
-  let propSound = document.getElementById('prop-sound-ent');
+  let plane = document.getElementById(planeId);
+  let ogPosition = Object.assign({}, plane.getAttribute('position'));
+  // Récupérer le son de l'avion
+  let propSound = plane.children[0];
   propSound.components.sound.playSound();
 
   let deplIntvl = setInterval(function() {
     // Bouger l'avion de x dist
-    let xPos = movePlaneAlongX(dist);
+    let xPos = movePlaneAlongX(dist, true, planeId);
     // Quand il arrive dans le brouillard, on le repositionne
-    if (xPos <= -45) {
+    if (xPos <= -55) {
       // Arrêt de la boucle intervalle, du son et réinitialisation
       clearInterval(deplIntvl);
-      plane.setAttribute('position', '50 -0.3 -15');
       setTimeout(propSound.components.sound.stopSound(), 2000);
+      setTimeout(plane.setAttribute('position', ogPosition), 2000);
     }
   }, tps);
 }
 
 // Fonction de déplacement de l'avion
-function movePlaneAlongX(deltaX, negative = true) {
+function movePlaneAlongX(deltaX, negative = true, planeId = 'plane-model') {
   // Récupérer le modèle de l'avion
-  let plane = document.getElementById('plane-model');
+  let plane = document.getElementById(planeId);
   // Récupérer la position initiale
   let position = plane.getAttribute('position');
   // Augmenter ou diminuer la position d'une unité
