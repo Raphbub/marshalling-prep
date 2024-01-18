@@ -16,7 +16,7 @@
     <div id="fullscreen-rect">
         <p>Récupérez vos affaires avant de sortir sur le tarmac (&nearr;)</p>
         <br>
-        <p id="infos">Réveillez votre manette en appuyant sur X ou appuyez sur une touche du clavier</p>
+        <p id="infos">Réveillez votre manette en appuyant (fort) sur X ou appuyez sur une touche du clavier</p>
     </div>
     <a-scene fog="type: linear; color: #AAA; far: 35; near: 10">
         <!-- Chargement des assets -->
@@ -35,7 +35,7 @@
             <a-asset-item id="tabouret" src="assets/tabouret.gltf"></a-asset-item>
             <a-asset-item id="casque" src="assets/casque.glb"></a-asset-item>
             <a-asset-item id="af1" src="assets/af1.gltf"></a-asset-item>
-            <!-- <a-asset-item id="jaquette" src="assets/jacket.gltf"></a-asset-item> -->
+            <a-asset-item id="jaquette" src="assets/hi_vis_jacket.glb"></a-asset-item>
             <img id="sol-text" src="assets/rubber_tiles_diff_2k.jpg">
             <img id="mur-text" src="assets/concrete_wall_004_diff_2k.jpg">
             <img id="plafond-text" src="assets/concrete_wall_008_diff_2k.jpg">
@@ -101,7 +101,7 @@
             <!-- Casque -->
             <a-entity id="casque_ent" class="clickable" gltf-model="#casque" position="2.49 1.336 -0.431" rotation="0 45 103" scale="0.4 0.4 0.4"></a-entity>
             <!-- "Jaquette" -->
-            <!-- <a-entity id="jaque_ent" gltf-model="#jaquette" position="-2.537 1.22 2.48" rotation="0 270 0" scale="0.001 0.001 0.001"></a-entity> -->
+            <a-entity id="jaque_ent" class="clickable" gltf-model="#jaquette" position="-3.137 1.22 2.677" rotation="0 180 0" scale="1 1 1"></a-entity>
 
             <!-- Stores -->
             <a-entity position="0 2 -3.55">
@@ -197,6 +197,10 @@
     </a-scene>
 
     <div class="svg-container">
+        <!-- Veste svg -->
+        <svg width="35" height="35" viewBox="-1 0 19 19" xmlns="http://www.w3.org/2000/svg">
+            <path id="svg_veste" fill="white" d="m15.867 7.593-1.534.967a.544.544 0 0 1-.698-.118l-.762-.957v7.256a.476.476 0 0 1-.475.475h-7.79a.476.476 0 0 1-.475-.475V7.477l-.769.965a.544.544 0 0 1-.697.118l-1.535-.967a.387.387 0 0 1-.083-.607l2.245-2.492a2.814 2.814 0 0 1 2.092-.932h.935a2.374 2.374 0 0 0 4.364 0h.934a2.816 2.816 0 0 1 2.093.933l2.24 2.49a.388.388 0 0 1-.085.608z"/>
+        </svg>
         <!-- SVG combiné avec un "gradient" linéaire moit/moit, généré par ChatGPT, prompt I have the following svg rect, how can I
         get the top half to be green and the bottom to be black without using two rects -->
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30">
@@ -212,9 +216,9 @@
             </defs>
             
             <!-- Baguette gauche -->
-            <rect id="svg_bag_gauche" x="2" width="5" height="25" fill="url(#barGradientWhiteBottom)" />
+            <rect id="svg_bag_gauche" x="4" width="5" height="25" fill="url(#barGradientWhiteBottom)" />
             <!-- Baguette droite -->
-            <rect id="svg_bag_droite" x="13" width="5" height="25" fill="url(#barGradientWhiteBottom)" />
+            <rect id="svg_bag_droite" x="15" width="5" height="25" fill="url(#barGradientWhiteBottom)" />
         </svg>
     
         <!-- Casque svg -->

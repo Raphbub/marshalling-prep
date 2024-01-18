@@ -283,6 +283,7 @@ function muffleSound() {
 
 // Modifier le fill des SVG pour qu'ils soient blancs/verts brillants pour "atteint/récupéré"
 function changeSvgElement(objectif) {
+  let svgVeste = document.getElementById('svg_veste');
   let svgBagGauche = document.getElementById('svg_bag_gauche');
   let svgBagDroite = document.getElementById('svg_bag_droite');
   let svgCasque = document.getElementById('svg_casque');
@@ -296,6 +297,8 @@ function changeSvgElement(objectif) {
     }
   } else if (objectif === 'casque') {
     svgCasque.style.fill = svgCasque.style.fill == 'white' ? 'black' : 'white';
+  } else {
+    svgVeste.style.fill = svgVeste.style.fill == 'white' ? 'black' : 'white';
   }
 }
 
@@ -318,14 +321,16 @@ function flickerSVGobjectives() {
   let flicker = 21; // Impair pour finir éteint
   let intervalId = setInterval(() => {
     // "Allumer/éteindre" les SVG
+    turnObjOnOff('svg_veste', false);
     turnObjOnOff('svg_bag_gauche', true);
     turnObjOnOff('svg_bag_droite', true);
     turnObjOnOff('svg_casque', false);
 
     flicker--;
     if (flicker <= 0) {
-      // Le casque commence alterné, il faut le rétablir en noir au dernier clignotement
+      // Le casque et la veste commencent alternés, il faut les rétablir en noir au dernier clignotement
       changeSvgElement('casque');
+      changeSvgElement('veste');
       clearInterval(intervalId);
     }
   }, 250);
