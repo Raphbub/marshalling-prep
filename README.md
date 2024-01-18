@@ -53,3 +53,4 @@ Finalement, malgré les difficultés et la sobriété du projet, il a permis des
 
 #### Éléments *pour le geste*
 Différents éléments sont placés aléatoirement comme les déclenchements et nombre de clignotements du néon et son grésillement. Le passage de l'avion est également déclenché au hasard (à l'exception du premier). En explorant la scène, on peut voir Air Force 1 (en plus petit) dans le brouillard. Dès qu'on a récupéré le casque, les sons d'ambiance sont réduits de moitié ! Le cadre de la porte devient blanc quand les objets ont été ramassés, en miroir des svg en haut à droite.
+Petit *easter egg*, si on clique sur la souris posée sur le bureau, Air Force 1 passe devant la fenêtre

@@ -451,3 +451,39 @@ function displayElapsedTime(startTime, endTime, elementId) {
 
 // Temps du début de la scène
 let startTime;
+
+// Composante bonus
+AFRAME.registerComponent('easter-egg', {
+  init: function () {
+    let el = this.el;
+    let typeObj = this.data.type
+
+    // On compare la position (sans la hauteur) entre le rig et l'objet
+    // en dessous d'un certain seuil, on peut "prendre" l'objet
+    this.launchAF1 = function () {
+      let rigPos = document.getElementById('rig').getAttribute('position');
+      let objPos = el.getAttribute('position')
+
+      // Si suffisamment proche de l'objet
+      if (meanAbsDiffAxis(rigPos, objPos, 'x', 'z') < 1.5) {
+        movePlane(1, 75, "af1-ent")
+      }
+    }
+    this.el.addEventListener('click', this.launchAF1);
+  },
+  tick: function () {
+    // Actuellement, il n'y a pas de vérification de l'élément cliqué et de sa distance.
+    // Possible de récupérer trois objets d'un coup.
+    /* Choix en partie généré par ChatGPT car je n'arrivais pas à éviter l'erreur
+    s'il n'y avait pas de gamepad */
+    let gamepad = navigator.getGamepads ? navigator.getGamepads()[0] : null;
+
+    // S'il y a un gamepad et que le bouton principale est appuyé
+    if (gamepad && gamepad.buttons[0].pressed) {
+      this.launchAF1();
+    }
+  },
+  remove: function () {
+    this.el.removeEventListener('click', this.launchAF1);
+  }
+})
