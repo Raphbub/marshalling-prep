@@ -237,18 +237,23 @@ AFRAME.registerComponent('quest-item', {
     this.getObject = function () {
       let rigPos = document.getElementById('rig').getAttribute('position');
       let objPos = el.getAttribute('position')
+      let successSound = document.getElementById('success-sound-ent')
       if (meanAbsDiffXZ(rigPos, objPos) < 1.1) {
-        // Play Sound
-
-        // Change SVG
+        // Jouer le son de la victoire
+        successSound.components.sound.playSound()
+        // Augmenter le son de 0.05
+        successSound.components.sound.data.volume += 0.05
+        // Colorer le SVG
         changeSvgElement(typeObj);
-        // Ajustement des objectifs (baguette ajusté dans la fonction dessus)
+        // Ajustement des objectifs (baguette ajustée dans la fonction dessus)
         if (typeObj == "casque") {
           objectives.casque = true;
+          // Étouffer les sons vu que le casque est porté
+          muffleSound();
         } else if (typeObj == "veste") {
           objectives.veste = true;
         }
-        // Remove object
+        // Enlever l'objet de la scène
         el.remove();
       }
     }
@@ -271,16 +276,19 @@ function meanAbsDiffXZ(obj1, obj2) {
 // Composante porte ouvrable
 AFRAME.registerComponent('openable', {
   init: function() {
+    let el = this.el;
     // Fonction d'ouverture de porte / fin du jeu
     this.finishGame = function () {
       let allObjectives = Object.values(objectives).every(value => value === true);
       let rigPos = document.getElementById('rig').getAttribute('position');
       let objPos = el.getAttribute('position')
+      let finalSuccessSound = document.getElementById('final-success-sound-ent')
 
       // Être proche de la porte et avoir rempli les objectifs
       if (allObjectives && meanAbsDiffXZ(rigPos, objPos) < 1.1) {
         // Son victoire
         console.log("gagné");
+        finalSuccessSound.components.sound.playSound();
       }
     }
     this.el.addEventListener('click', this.finishGame);
@@ -290,14 +298,17 @@ AFRAME.registerComponent('openable', {
     }
   })
 
-// Diminution du volume des sons
+// Diminution du volume des sons d'ambiance
 function muffleSound() {
   // Récupérer tous les sons
   let soundEls = document.querySelectorAll('[sound]');
   // On diminue le volume des sons par deux
   soundEls.forEach(function(el) {
-    let currentVolume = el.components.sound.data.volume;
-    el.setAttribute('sound', 'volume', currentVolume/2);
+    // Seulement les sons d'ambiance
+    if (! el.classList.contains('success')) {
+      let currentVolume = el.components.sound.data.volume;
+      el.setAttribute('sound', 'volume', currentVolume/2);
+    }
   });
 }
 
