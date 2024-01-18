@@ -56,11 +56,12 @@ function fadeRectangle() {
       countdownDisplay.innerText = 'Début dans ' + countdown + ' seconde';
     } else if (countdown <= 0) {
         clearInterval(countdownInterval);
-        // Start fading
+        // Déclencher les éléments de mise en place pendant le fading
         rect.style.opacity = '0';
         getUp();
         randomNeonFlickering();
-        setTimeout(randomPlaneTaxiing, 6000);
+        setTimeout(randomPlaneTaxiing, 12000);
+        flickerSVGobjectives();
         setTimeout(function() {
             rect.remove();
         }, 1500);
@@ -145,7 +146,7 @@ function movePlane(dist, tps) {
       // Arrêt de la boucle intervalle, du son et réinitialisation
       clearInterval(deplIntvl);
       plane.setAttribute('position', '50 -0.3 -15');
-      propSound.components.sound.stopSound();
+      setTimeout(propSound.components.sound.stopSound(), 2000);
     }
   }, tps);
 }
@@ -184,6 +185,10 @@ function playNeonSound() {
   document.getElementById('neon-sound-ent').components.sound.playSound()
 }
 
+function stopNeonSound() {
+  document.getElementById('neon-sound-ent').components.sound.stopSound()
+}
+
 // Clignotement du néon
 function flickerNeonLight() {
   // Récupérer la lumière et son intensité
@@ -191,21 +196,29 @@ function flickerNeonLight() {
   let intensiteDepart = neon.getAttribute('light').intensity;
   // Clignoter entre 1 et 3 fois
   let flicker = Math.ceil(Math.random() * 3);
+  let soundPlayed = false; // Indicateur pour contrôler la lecture du son
+
   // Clignotement tout les 200ms
   let countdownInterval = setInterval(function() {
-    // Si "long" clignotement
-    if(flicker > 2) {
-      console.log("heho");
+    // Si "long" clignotement et le son n'a pas encore été joué
+    if (flicker > 2 && !soundPlayed) {
       playNeonSound();
-    } 
-    flicker--
+      soundPlayed = true; // Marquer que le son a été joué
+    }
+    flicker--;
     neon.setAttribute('light', 'intensity', 0);
+
     setTimeout(function() {
-      neon.setAttribute('light', 'intensity', intensiteDepart/2);
       /* Mettre la condition dans le setTimeout, sinon l'intensité est 
       divisée par 2 après avoir été réinitialisée >.< */
+      neon.setAttribute('light', 'intensity', intensiteDepart/2);
+      // Vérifier si c'est le dernier clignotement
       if (flicker <= 0) {
         neon.setAttribute('light', 'intensity', intensiteDepart);
+        // Arrêter le son seulement après tous les clignotements
+        if (soundPlayed) {
+          stopNeonSound();
+        }
         clearInterval(countdownInterval);
       }
     }, 100);
@@ -219,8 +232,6 @@ function randomNeonFlickering() {
   setTimeout(randomNeonFlickering, nextDelay);
 }
 
-
-
 // Animation de se lever au début
 function getUp() {
   let rig = document.getElementById('rig');
@@ -231,28 +242,87 @@ function getUp() {
   rig.setAttribute('animation', anim);
 }
 
+/* TODO NE MARCHE TOUJOURS PAS*/
 AFRAME.registerComponent('raycaster-listen', {
-	init: function () {
-    // Use events to figure out what raycaster is listening so we don't have to
-    // hardcode the raycaster.
-    this.el.addEventListener('raycaster-intersected', evt => {
-      this.raycaster = evt.detail.el;
-    });
-    this.el.addEventListener('raycaster-intersected-cleared', evt => {
-      this.raycaster = null;
-    });
+  init: function () {
+      this.el.addEventListener('raycaster-intersected', evt => {
+          this.raycaster = evt.detail.el;
+      });
+      this.el.addEventListener('raycaster-intersected-cleared', evt => {
+          this.raycaster = null;
+      });
   },
 
   tick: function () {
-    if (!this.raycaster) { return; }  // Not intersecting.
+      if (!this.raycaster) {
+          return; // No raycaster, exit the function
+      }
 
-    let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
-    if (!intersection) { return; }
-
-    // Calculate distance
-    let origin = this.raycaster.getAttribute('raycaster').origin;
-    let distance = intersection.point.distanceTo(new THREE.Vector3(origin.x, origin.y, origin.z));
-
-    console.log('Distance to intersected object:', distance);
+      let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
+      if (intersection) {
+          console.log('Intersected entity:', intersection.el); // Log the intersected entity
+      }
   }
 });
+
+// Diminution du volume des sons
+function muffleSound() {
+  // Récupérer tous les sons
+  let soundEls = document.querySelectorAll('[sound]');
+  // On diminue le volume des sons par deux
+  soundEls.forEach(function(el) {
+    let currentVolume = el.components.sound.data.volume;
+    el.setAttribute('sound', 'volume', currentVolume/2);
+  });
+}
+
+// Modifier le fill des SVG pour qu'ils soient blancs/verts brillants pour "atteint/récupéré"
+function changeSvgElement(objectif) {
+  let svgBagGauche = document.getElementById('svg_bag_gauche');
+  let svgBagDroite = document.getElementById('svg_bag_droite');
+  let svgCasque = document.getElementById('svg_casque');
+
+  if (objectif === 'baguette') {
+    // On ne remplit la baguette de droite qui si celle de gauche est déjà "colorée"
+    if (svgBagGauche.getAttribute('fill') == 'url(#barGradientWhiteBottom)') {
+      svgBagDroite.setAttribute('fill', 'url(#barGradientWhiteBottom)');
+    } else {
+      svgBagGauche.setAttribute('fill', 'url(#barGradientWhiteBottom)');
+    }
+  } else if (objectif === 'casque') {
+    svgCasque.style.fill = svgCasque.style.fill == 'white' ? 'black' : 'white';
+  }
+}
+
+// Alterner le fill des SVG du noir au blanc et vice versa
+function turnObjOnOff(elId, isBaguette) {
+  let element = document.getElementById(elId);
+  if (isBaguette) {
+    let currentFill = element.getAttribute('fill');
+    let newFill = currentFill == 'url(#barGradient)' ? 'url(#barGradientWhiteBottom)' : 'url(#barGradient)';
+    element.setAttribute('fill', newFill);
+  } else {
+    let currentFill = element.style.fill;
+    let newFill = currentFill == 'white' ? 'black' : 'white';
+    element.style.fill = newFill;
+  }
+}
+
+// Faire clignoter les objectifs pour attirer l'attention dessus
+function flickerSVGobjectives() {
+  let flicker = 15;
+  let intervalId = setInterval(() => {
+    // "Allumer/éteindre" les SVG
+    turnObjOnOff('svg_bag_gauche', true);
+    turnObjOnOff('svg_bag_droite', true);
+    turnObjOnOff('svg_casque', false);
+
+    flicker--;
+    if (flicker <= 0) {
+      // Le casque commence alterné, il faut le rétablir en noir au dernier clignotement
+      changeSvgElement('casque');
+      clearInterval(intervalId);
+    }
+  }, 250);
+}
+

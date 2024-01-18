@@ -52,7 +52,7 @@
             <a-box position="0 2.9 0" width="0.1" height="0.02" depth="1.5" material="color: black"></a-box>
             <!-- Tube -->
             <a-cylinder position="0 2.86 0" radius="0.03" height="1.32" rotation="90 0 0" material="color: white">
-                <a-sound id="neon-sound-ent" src="#neon-sound" autoplay="false"></a-sound>
+                <a-sound id="neon-sound-ent" src="#neon-sound" autoplay="false" volume="0.2"></a-sound>
             </a-cylinder>
             <a-entity id="neon-light" light="type: point; intensity: 3; distance: 6; decay: 1; castShadow:true;" position="0 2.5 0"></a-entity>
             
@@ -96,7 +96,7 @@
             <a-entity id="wand_ent_1" class="clickable" gltf-model="#wand" position="2.4 3.270 -2.026" rotation="0 174.12 91.1" scale="0.02 0.02 0.02" raycaster-listen></a-entity>
             <a-entity id="wand_ent_2" class="clickable" gltf-model="#wand" position="2.33 3.270 -1.626" rotation="0 190.32 91.1" scale="0.02 0.02 0.02" raycaster-listen></a-entity>
             <!-- Casque -->
-            <a-entity id="casque_ent" class="clickable" gltf-model="#casque" position="2.49 1.336 -0.431" rotation="0 45 103" scale="0.4 0.4 0.4" raycaster-listen></a-entity>
+            <a-entity id="casque_ent" class="clickable" gltf-model="#casque" position="2.49 1.336 -0.431" rotation="0 45 103" scale="0.4 0.4 0.4"></a-entity>
             <!-- "Jaquette" -->
             <!-- <a-entity id="jaque_ent" gltf-model="#jaquette" position="-2.537 1.22 2.48" rotation="0 270 0" scale="0.001 0.001 0.001"></a-entity> -->
 
@@ -174,7 +174,8 @@
             movement-controls="controls: gamepad,keyboard; speed: 0.15; constrainToNavMesh: true">
             <a-camera position="0 0 0">
                 <a-entity cursor raycaster="objects: .clickable; showLine: true;" 
-                    position="0 -0.05 0"
+                    raycaster-listen
+                    position="0 0 0"
                     geometry="primitive: ring; radiusInner: 0.015; radiusOuter: 0.02"
                     material="color: white; shader: flat">
                 </a-entity>
@@ -189,6 +190,38 @@
         <a-sky color="#AAA"></a-sky>
         
     </a-scene>
+
+    <div class="svg-container">
+        <!-- SVG combiné avec un "gradient" linéaire moit/moit, généré par ChatGPT, prompt I have the following svg rect, how can I
+        get the top half to be green and the bottom to be black without using two rects -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="30">
+            <defs>
+                <linearGradient id="barGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="40%" style="stop-color:black;stop-opacity:1" />
+                    <stop offset="40%" style="stop-color:rgb(0, 50, 0);stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="barGradientWhiteBottom" x1="0%" y1="100%" x2="0%" y2="0%">
+                    <stop offset="40%" style="stop-color:white;stop-opacity:1" />
+                    <stop offset="40%" style="stop-color:rgb(1, 255, 1);stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            
+            <!-- Baguette gauche -->
+            <rect id="svg_bag_gauche" x="2" width="5" height="25" fill="url(#barGradientWhiteBottom)" />
+            <!-- Baguette droite -->
+            <rect id="svg_bag_droite" x="13" width="5" height="25" fill="url(#barGradientWhiteBottom)" />
+        </svg>
+    
+        <!-- Casque svg -->
+        <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <!-- License: CC0. Made by SVG Repo: https://www.svgrepo.com/svg/103147/headphone -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 400 400" style="enable-background:new 0 0 400 400" xml:space="preserve">
+            <path id="svg_casque" fill="white" d="M364.992 196.363a98.446 98.446 0 0 0-2.449-1.886c-2.827-40.258-20.361-77.712-49.682-105.904C282.334 59.221 242.253 43.057 200 43.057S117.666 59.222 87.139 88.573c-29.321 28.192-46.855 65.646-49.682 105.905-.852.636-1.666 1.263-2.449 1.886C12.432 214.342 0 238.412 0 264.141s12.432 49.798 35.007 67.775c19.897 15.846 45.273 24.969 69.663 25.026 4.768 0 9.252-1.854 12.626-5.223a17.75 17.75 0 0 0 5.252-12.657V189.217c0-4.783-1.864-9.278-5.253-12.66-3.375-3.365-7.866-5.219-12.669-5.219a97.8 97.8 0 0 0-5.676.179c14.572-42.573 55.133-72.269 101.05-72.269s86.479 29.696 101.05 72.27a98.251 98.251 0 0 0-5.719-.18c-4.77 0-9.251 1.854-12.628 5.222a17.764 17.764 0 0 0-5.251 12.657v149.848c0 4.783 1.866 9.279 5.253 12.658a17.762 17.762 0 0 0 12.626 5.221h.043c24.346-.059 49.721-9.182 69.619-25.024C387.568 313.938 400 289.867 400 264.141c0-25.729-12.432-49.799-35.008-67.778z"/>
+        </svg>
+    </div>
+    
+    
+    
       
     <!-- Script perso -->
     <script src="script.js"></script>

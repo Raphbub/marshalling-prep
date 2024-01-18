@@ -41,7 +41,7 @@ Ce projet a été développé dans le cadre du cours _Réalité virtuelle et aug
 
 Pour une première avec de la modélisation 3D web, il y a quelques éléments problématiques qui n'ont pu être réglés (cf. [Issues](https://github.com/Raphbub/marshalling-prep/issues)).
 
-Les différents *assets* audio ont tendance à ne pas charger alors que, malgré leur simplicité, ils donnent du corps à la scène. Le réveil situe un peu l'intrigue et les sons de l'hélice et du néon habillent sonalement la scène. (Il paraît tout de même que le bruit fait par l'ordinateur en "rendant" la scène peut faire penser à un avion...)
+Les différents *assets* audio ont tendance à ne pas charger alors que, malgré leur simplicité, ils donnent du corps à la scène. Le réveil situe un peu l'intrigue et les sons de l'hélice et du néon habillent sonalement la scène. (Il paraît tout de même que le bruit fait par l'ordinateur en "rendant" la scène peut faire penser à un avion...) (Il semblerait que ces problèmes n'arrivent pas [tout le temps](https://github.com/Raphbub/marshalling-prep/issues/4).)
 
 Les *assets* 3D sont assez différents les un des autres et un downscaling a été nécessaire sur certains éléments (ex. la veste haute visibilité du vestiaire) qui ralentissaient trop le modèle.
 
