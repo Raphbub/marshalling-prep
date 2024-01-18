@@ -126,7 +126,7 @@
         <!-- Avion -->
         <a-obj-model id="plane-model" class="clickable" src="#piper-plane" mtl="#piper-plane-material" 
         position="55 -0.3 -15" scale="1 1 1" rotation="-12 -90 0">
-            <a-entity id="prop-sound-ent" sound="src: #prop-sound; autoplay: false"></a-entity>
+            <a-entity id="prop-sound-ent" sound="src: #prop-sound; autoplay: false" volume="2"></a-entity>
         </a-obj-model>
 
         <a-entity id="af1-ent" gltf-model="#af1" position="75 2.9 -28" scale="3 3 3" rotation="0 -90 0">
@@ -177,11 +177,11 @@
             id="rig"
             position="0.5 1.25 2.3"
             movement-controls="controls: gamepad,keyboard; speed: 0.15; constrainToNavMesh: true">
-            <a-camera position="0 0 0">
-                <a-entity cursor raycaster="objects: .clickable; showLine: true;" 
-                    raycaster-listen
-                    position="0 -0.01 0"
-                    geometry="primitive: ring; radiusInner: 0.015; radiusOuter: 0.02"
+            <a-camera position="0 0 0"
+                wasd-controls="acceleration: 0.15">
+                <a-entity cursor raycaster="objects: .clickable; showLine: true;"
+                    position="0 0 -1"
+                    geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015"
                     material="color: white; shader: flat">
                 </a-entity>
                 </a-entity>

@@ -105,33 +105,8 @@ function addTaxywayLights() {
     sceneEl.appendChild(pointLight);
   } 
 }
-        
 
-/* Pour gagner un peu de temps de chargement, on attend que le contenu soit chargé
-avant d'ajouter le modèle de l'avion à la scène (en dehors du champ de vision) 
-Adapté de la génération par ChatGPT pour le prompt 'In A-Frame, using javascript, write a function
-using the loaded event so that a model is added to the scene only when loaded' */
-document.addEventListener('DOMContentLoaded', function() {
-  addTaxywayLights();
-
-  // document.querySelector('#piper-plane').addEventListener('loaded', function () {
-  //   // On sélectionne la scène et on créé un objet
-  //   let sceneEl = document.querySelector('a-scene');
-  //   let modelEl = document.createElement('a-obj-model');
-
-  //   // Définition des attributs
-  //   modelEl.setAttribute('id', 'plane-model');
-  //   modelEl.setAttribute('src', '#piper-plane');
-  //   modelEl.setAttribute('mtl', '#piper-plane-material');
-  //   modelEl.setAttribute('position', '50 -0.3 -15');
-  //   modelEl.setAttribute('scale', '1 1 1');
-  //   // Pencher légèrement le modèle pour que la roue arrière "touche" le sol
-  //   modelEl.setAttribute('rotation', '-12 -90 0');
-
-  //   // Ajouter l'élément (avec ses attributs définis) à la scène
-  //   sceneEl.appendChild(modelEl);
-  // });
-});
+addTaxywayLights();
 
 // Déplace l'avion donné sur une distance, tous les tps millisecondes
 function movePlane(dist, tps, planeId = 'plane-model') {
@@ -231,8 +206,8 @@ function flickerNeonLight(noSound = false) {
 }
 
 // Déclenchement aléatoire sur un des deux ou les deux
-function randomNeonFlickering() {
-  flickerNeonLight();
+function randomNeonFlickering(noSound = false) {
+  flickerNeonLight(noSound);
   let nextDelay = Math.random() * (80000 - 40000) + 40000;
   setTimeout(randomNeonFlickering, nextDelay);
 }
