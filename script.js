@@ -60,12 +60,13 @@ function fadeRectangle() {
         clearInterval(countdownInterval);
         // Déclencher les éléments de mise en place pendant le fading
         rect.style.opacity = '0';
+        startTime = Date.now();
         getUp();
         // Évite de jouer le son si l'Interval par sur un clignotement long
         randomNeonFlickering(noSound=true);
         setTimeout(randomPlaneTaxiing, 10000);
         setTimeout(function() {
-            rect.remove();
+          rect.style.zIndex = -1000;
         }, 1500);
     } else {
       countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
@@ -181,7 +182,7 @@ function flickerNeonLight(noSound = false) {
   // Clignotement tout les 200ms
   let countdownInterval = setInterval(function() {
     // Si "long" clignotement et le son n'a pas encore été joué
-    if (flicker > 2 && !soundPlayed && !noSound) {
+    if (flicker > 1 && !soundPlayed && !noSound) {
       playNeonSound();
       soundPlayed = true; // Marquer que le son a été joué
     }
@@ -240,7 +241,7 @@ AFRAME.registerComponent('quest-item', {
       let successSound = document.getElementById('success-sound-ent')
 
       // Si suffisamment proche de l'objet
-      if (meanAbsDiffXZ(rigPos, objPos) < 1.1) {
+      if (meanAbsDiffAxis(rigPos, objPos, 'x', 'z') < 1.1) {
         // Jouer le son de la victoire
         successSound.components.sound.playSound()
         // Augmenter le son de 0.05
@@ -276,11 +277,11 @@ AFRAME.registerComponent('quest-item', {
 })
 
 // Calcul de la différence moyenne absolue entre 2 positions
-function meanAbsDiffXZ(obj1, obj2) {
-  let diffX = Math.abs(obj1.x - obj2.x);
-  let diffZ = Math.abs(obj1.z - obj2.z);
+function meanAbsDiffAxis(obj1, obj2, axis1, axis2) {
+  let diffAxis1 = Math.abs(obj1[axis1] - obj2[axis1]);
+  let diffAxis2 = Math.abs(obj1[axis2] - obj2[axis2]);
 
-  return (diffX + diffZ) / 2;
+  return (diffAxis1 + diffAxis2) / 2;
 }
 
 
@@ -294,11 +295,21 @@ AFRAME.registerComponent('openable', {
       let rigPos = document.getElementById('rig').getAttribute('position');
       let objPos = el.getAttribute('position')
       let finalSuccessSound = document.getElementById('final-success-sound-ent')
-
+      let rect = document.getElementById('fullscreen-rect');
       // Être proche de la porte et avoir rempli les objectifs
-      if (allObjectives && meanAbsDiffXZ(rigPos, objPos) < 1.1) {
+      if (allObjectives && meanAbsDiffAxis(rigPos, objPos, 'x', 'z') > 1.4) {
+        let endTime = Date.now();
+        displayElapsedTime(startTime, endTime, 'fullscreen-rect');
+        // Ouvrir la poignée
+        rotateElement('#handle-pivot', { x: 15, y: 0, z: 0 }, 250);
         // Son victoire
         finalSuccessSound.components.sound.playSound();
+        // Remettre le fond devant
+        rect.style.zIndex = 1200;
+        setTimeout(rect.style.transition = "opacity 5s ease-in-out;", 500);
+        rect.style.opacity = '1';
+        // Ouvrir la porte
+        setTimeout(rotateElement, 200, '#door-pivot', { x: 0, y: 45, z: 0 }, 2000)
       }
     }
     this.el.addEventListener('click', this.finishGame);
@@ -306,7 +317,17 @@ AFRAME.registerComponent('openable', {
   remove: function () {
       this.el.removeEventListener('click', this.finishGame);
     }
-  })
+})
+
+// Effectuer une rotation sur un axe
+function rotateElement(id, finalPosition, duration) {
+  document.querySelector(id).setAttribute('animation', {
+    property: 'rotation',
+    to: finalPosition,
+    dur: duration,
+    easing: 'easeInOutQuad'
+  });
+}
 
 // Diminution du volume des sons d'ambiance
 function muffleSound() {
@@ -384,3 +405,24 @@ let objectives = {
   baguettes: false,
   casque: false
 }
+
+/* Les fonctions ci-dessous ont été générées par ChatGPT (et modifiées) en réponse au prompt
+Display the elapsed time between two function calls in a human readable format*/
+// Function to format time in a human-readable format
+function formatTime(milliseconds) {
+  let seconds = Math.floor(milliseconds / 1000);
+  let minutes = Math.floor(seconds / 60);
+  seconds = seconds % 60;
+
+  return `${minutes} minutes et ${seconds} seconds`;
+}
+
+// Function to display elapsed time
+function displayElapsedTime(startTime, endTime, elementId) {
+  let elapsedTime = endTime - startTime;
+  let formattedTime = formatTime(elapsedTime);
+  document.getElementById(elementId).innerHTML = `<p>Bravo! <br><br> Terminé en ${formattedTime}</p>`;
+}
+
+// Temps du début de la scène
+let startTime;
