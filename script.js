@@ -8,7 +8,8 @@ function removeRectKeyPressed() {
 
 // Ajout du message relatif au gamepad
 function addGamepadMsg() {
-  document.getElementById('fullscreen-rect').innerHTML += "<p style='font-size: 14px;'>Manette détectée, attendre la fin du chargement  et appuyez sur X pour commencer</p>"
+  document.getElementById('infos').style.fontSize = '16px';
+  document.getElementById('infos').innerHTML = "Manette détectée, attendre la fin du chargement et appuyez sur X pour commencer";
 }
 
 // Action pour, de façon répétée, vérifier si le bouton X [0] est pressé
@@ -54,14 +55,15 @@ function fadeRectangle() {
       countdownDisplay.innerText = 'Début dans ' + countdown + ' secondes';
     } else if (countdown == 1) {
       countdownDisplay.innerText = 'Début dans ' + countdown + ' seconde';
+      flickerSVGobjectives();
     } else if (countdown <= 0) {
         clearInterval(countdownInterval);
         // Déclencher les éléments de mise en place pendant le fading
         rect.style.opacity = '0';
         getUp();
-        randomNeonFlickering();
-        setTimeout(randomPlaneTaxiing, 12000);
-        flickerSVGobjectives();
+        // Évite de jouer le son si l'Interval par sur un clignotement long
+        randomNeonFlickering(noSound=true);
+        setTimeout(randomPlaneTaxiing, 10000);
         setTimeout(function() {
             rect.remove();
         }, 1500);
@@ -180,17 +182,18 @@ function randomPlaneTaxiing() {
   setTimeout(randomPlaneTaxiing, nextDelay);
 }
 
-// Jouer le son du neon
+// Jouer le son du néon
 function playNeonSound() {
   document.getElementById('neon-sound-ent').components.sound.playSound()
 }
 
+// Arrêter le son du néon
 function stopNeonSound() {
   document.getElementById('neon-sound-ent').components.sound.stopSound()
 }
 
 // Clignotement du néon
-function flickerNeonLight() {
+function flickerNeonLight(noSound = false) {
   // Récupérer la lumière et son intensité
   let neon = document.getElementById('neon-light');
   let intensiteDepart = neon.getAttribute('light').intensity;
@@ -201,7 +204,7 @@ function flickerNeonLight() {
   // Clignotement tout les 200ms
   let countdownInterval = setInterval(function() {
     // Si "long" clignotement et le son n'a pas encore été joué
-    if (flicker > 2 && !soundPlayed) {
+    if (flicker > 2 && !soundPlayed && !noSound) {
       playNeonSound();
       soundPlayed = true; // Marquer que le son a été joué
     }
@@ -310,7 +313,7 @@ function turnObjOnOff(elId, isBaguette) {
 
 // Faire clignoter les objectifs pour attirer l'attention dessus
 function flickerSVGobjectives() {
-  let flicker = 15;
+  let flicker = 21; // Impair pour finir éteint
   let intervalId = setInterval(() => {
     // "Allumer/éteindre" les SVG
     turnObjOnOff('svg_bag_gauche', true);

@@ -14,8 +14,9 @@
 </head>
 <body>
     <div id="fullscreen-rect">
-        <p>Récupérez vos affaires avant de sortir sur le tarmac</p>
-        <br>      
+        <p>Récupérez vos affaires avant de sortir sur le tarmac (&nearr;)</p>
+        <br>
+        <p id="infos">Réveillez votre manette en appuyant sur un bouton ou appuyez sur une touche du clavier</p>
     </div>
     <a-scene fog="type: linear; color: #AAA; far: 35; near: 10">
         <!-- Chargement des assets -->
@@ -175,7 +176,7 @@
             <a-camera position="0 0 0">
                 <a-entity cursor raycaster="objects: .clickable; showLine: true;" 
                     raycaster-listen
-                    position="0 0 0"
+                    position="0 -0.01 0"
                     geometry="primitive: ring; radiusInner: 0.015; radiusOuter: 0.02"
                     material="color: white; shader: flat">
                 </a-entity>
