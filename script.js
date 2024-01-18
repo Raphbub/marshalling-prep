@@ -238,6 +238,8 @@ AFRAME.registerComponent('quest-item', {
       let rigPos = document.getElementById('rig').getAttribute('position');
       let objPos = el.getAttribute('position')
       let successSound = document.getElementById('success-sound-ent')
+
+      // Si suffisamment proche de l'objet
       if (meanAbsDiffXZ(rigPos, objPos) < 1.1) {
         // Jouer le son de la victoire
         successSound.components.sound.playSound()
@@ -255,6 +257,15 @@ AFRAME.registerComponent('quest-item', {
         }
         // Enlever l'objet de la scène
         el.remove();
+  
+        let allObjectives = Object.values(objectives).every(value => value === true);
+        // Changer le cadre de la porte en blanc, miroir des SVG
+        if (allObjectives) {
+          let cadres = document.getElementsByClassName('cadre');
+          for (let cadre of cadres) {
+            cadre.setAttribute('material', 'color: white');
+          }
+        }
       }
     }
     this.el.addEventListener('click', this.getObject);
@@ -287,7 +298,6 @@ AFRAME.registerComponent('openable', {
       // Être proche de la porte et avoir rempli les objectifs
       if (allObjectives && meanAbsDiffXZ(rigPos, objPos) < 1.1) {
         // Son victoire
-        console.log("gagné");
         finalSuccessSound.components.sound.playSound();
       }
     }
