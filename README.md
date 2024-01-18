@@ -2,7 +2,7 @@
 
 ### Description
 
-Cette expérience VR nous plonge dans la peau d'un *groud marshaller*, une personne chargée de guider les avions au sol, notamment dans la phase de parking. Après un réveil soudain, il faut rassembler ses affaires avant de pouvoir sortir sur le tarmac pour accomplir sa mission.
+Cette expérience VR nous plonge dans la peau d'un *ground marshaller*, une personne chargée de guider les avions au sol, notamment dans la phase de parking. Après un réveil soudain, il faut rassembler ses affaires avant de pouvoir sortir sur le tarmac pour accomplir sa mission.
 
 #### Déroulé
 
@@ -10,7 +10,9 @@ Au début, un écran noir attend l'utilisateur avec un message sur l'objectif g�
 
 Pendant le *fade-out*, une sonnerie retentit et le personnage que l'on incarne se lève sur les derniers sons. On se retrouve une pièce avec une grande fenêtre en face de nous (avec un store à lamelles couvrant sa partie supérieure) et une porte sur la gauche. Par la fenêtre, on aperçoit le tarmac d'un aéroport avec une ligne de guidage pour le roulage au sol (*taxiway*). Cette ligne est bordée de guides lumineux, des petites lumières vertes. La ligne se divise sur la gauche avec un virage qui amène derrière le mur de la porte. Parfois, un petit avion passe sur cette ligne et l'on entend le bruit de son moteur.
 
-La pièce est froide et grise, principalement faite de ciment avec une porte en bois. Elle est éclairée par un néon qui a tendance à clignoter et grésiller quelque peu. Le mobilier est sommaire : un bureau, une chaise de bureau, un tabouret, une petite table et un casier. Sur la table se trouvent un casque de protection auditive et des baguettes lumineuses servant à guider les avions. Il faut s'emparer de se matériel avant de se diriger vers la porte pour poursuivre l'aventure...
+La pièce est froide et grise, principalement faite de ciment avec une porte en bois. Elle est éclairée par un néon qui a tendance à clignoter et grésiller quelque peu. Le mobilier est sommaire : un bureau, une chaise de bureau, un tabouret, une petite table et un casier contenant une veste jaune fluo. Sur la table se trouvent un casque de protection auditive et des baguettes lumineuses servant à guider les avions. Il faut s'emparer du matériel figuré par de petites icones en haut à droite de l'écran avant d'aller ouvrir la porte pour poursuivre l'aventure...
+
+<img src="/apercu_scene_RVRA_RB.gif">
 
 ### Installation / lancement
 
@@ -48,3 +50,5 @@ Les *assets* 3D sont assez différents les un des autres et un downscaling a ét
 Les interactions avec le curseur ont été plutôt compliquées à saisir et les quelques lumières de la pièce ne sont pas forcément optimalement placées ou orientée.
 
 Finalement, malgré les difficultés et la sobriété du projet, il a permis des apprentissages significatifs du développement de scènes 3D...avec quelques frustrations quand même.
+
+*Spoilers* Différents éléments sont placés aléatoirement comme les déclenchements et nombre de clignotements du néon et son grésillement. Le passage de l'avion est également déclenché au hasard (à l'exception du premier). En explorant la scène, on peut voir Air Force 1 (en plus petit) dans le brouillard.
