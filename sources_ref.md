@@ -6,20 +6,20 @@ Ce document sert à retrouver facilement les différents éléments de code util
 
 - Alarme (réveil), *Pixabay*, [https://pixabay.com/sound-effects/bedside-clock-alarm-95792/](https://pixabay.com/sound-effects/bedside-clock-alarm-95792/)
 - Avion "Piper PA-18 Supercub" par *lucas_pl*, [https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070](https://www.turbosquid.com/3d-models/piper-pa-18-supercub-fbx-free/1041070)
-- Avion "AF1", *bohmerang*, [https://sketchfab.com/3d-models/air-force-one-boeing-747-vc-25ab-327154ad78154f8f9c0ec7169fd4820c](https://sketchfab.com/3d-models/air-force-one-boeing-747-vc-25ab-327154ad78154f8f9c0ec7169fd4820c)
+- Avion "AF1", *bohmerang*, [https://sketchfab.com/3d-models/air-force-one-boeing-747-vc-25ab-327154ad78154f8f9c0ec7169fd4820c](https://sketchfab.com/3d-models/air-force-one-boeing-747-vc-25ab-327154ad78154f8f9c0ec7169fd4820c), CC BY-NC-SA 4.0
 - Bâtons lumineux, *VOiD1 Gaming*, [https://void1gaming.itch.io/free-marshalling-wands-collection](https://void1gaming.itch.io/free-marshalling-wands-collection)
 - Bruitage moteur, *Pixabay*, [https://pixabay.com/sound-effects/propellerwav-14433/](https://pixabay.com/sound-effects/propellerwav-14433/)
 - Bruitage moteur jet, *Pixabay*, [https://pixabay.com/sound-effects/aircraft-landing-zurich-international-airport-28774/](https://pixabay.com/sound-effects/aircraft-landing-zurich-international-airport-28774/)
 - Bruitage neon, *SoundsForYou*, [https://pixabay.com/fr/sound-effects/electric-hum-141075/](https://pixabay.com/fr/sound-effects/electric-hum-141075/)
 - Bruitage succès court, *Pixabay*, [https://pixabay.com/sound-effects/short-success-sound-glockenspiel-treasure-video-game-6346/](https://pixabay.com/sound-effects/short-success-sound-glockenspiel-treasure-video-game-6346/)
 - Bruitage succès trompettes, *Pixabay*, [https://pixabay.com/sound-effects/success-fanfare-trumpets-6185/](https://pixabay.com/sound-effects/success-fanfare-trumpets-6185/)
-- Bureau, *saeed khalili*, [https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8](https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8)
+- Bureau, *saeed khalili*, [https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8](https://sketchfab.com/3d-models/office-desk-b7a7bf47bdb241d1ba52acd7ecf2f0e8), CC BY 4.0
 - Casier, *Dmitriy Mitroshin*, [https://sketchfab.com/3d-models/locker-equipment-fae22ece4d764979aafd614ebe09956d](https://sketchfab.com/3d-models/locker-equipment-fae22ece4d764979aafd614ebe09956d)
-- Casque, *Généré sur lumalbs.ai/genie*, prompt "An orange ear protection"
-- Casque svg, *svgrepo.com*, [https://www.svgviewer.dev/s/206212/headphone](https://www.svgviewer.dev/s/206212/headphone)
-- Réveil, *cmdigital888*, [https://sketchfab.com/3d-models/digital-alarm-clock-ed977da6f8ee49f5ae7e1f5c642ba3b8](https://sketchfab.com/3d-models/digital-alarm-clock-ed977da6f8ee49f5ae7e1f5c642ba3b8)
-- Table en chêne, *kursive*, [https://sketchfab.com/3d-models/oak-dinner-table-5b8c378e63f04df7b344298e638562f5](https://sketchfab.com/3d-models/oak-dinner-table-5b8c378e63f04df7b344298e638562f5)
-- Tabouret, *Kozlov Maksim*, [https://sketchfab.com/3d-models/simple-stool-free-2bae1831fdeb4078add64da2767ab0aa](https://sketchfab.com/3d-models/simple-stool-free-2bae1831fdeb4078add64da2767ab0aa)
+- Casque, *Généré sur lumalabs.ai/genie*, prompt "An orange ear protection"
+- Casque svg, *svgrepo.com*, [https://www.svgviewer.dev/s/206212/headphone](https://www.svgviewer.dev/s/206212/headphone), CC BY 4.0
+- Réveil, *cmdigital888*, [https://sketchfab.com/3d-models/digital-alarm-clock-ed977da6f8ee49f5ae7e1f5c642ba3b8](https://sketchfab.com/3d-models/digital-alarm-clock-ed977da6f8ee49f5ae7e1f5c642ba3b8), CC BY 4.0
+- Table en chêne, *kursive*, [https://sketchfab.com/3d-models/oak-dinner-table-5b8c378e63f04df7b344298e638562f5](https://sketchfab.com/3d-models/oak-dinner-table-5b8c378e63f04df7b344298e638562f5), CC BY 4.0
+- Tabouret, *Kozlov Maksim*, [https://sketchfab.com/3d-models/simple-stool-free-2bae1831fdeb4078add64da2767ab0aa](https://sketchfab.com/3d-models/simple-stool-free-2bae1831fdeb4078add64da2767ab0aa), CC BY 4.0
 - Veste, *Généré sur lumalbs.ai/genie*, prompt "A yellow hi-vis jacket hanged" 
 
 ### Textures
